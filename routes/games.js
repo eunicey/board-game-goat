@@ -8,7 +8,9 @@ const router = Router()
 //   res.render('index', { title: 'Home Page' })
 // })
 
+// GET localhost:3000/games/new
 router.get('/new', gamesCtrl.new)
+
 
 export {
   router
