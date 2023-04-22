@@ -6,6 +6,21 @@ function index(req, res){
   })
 }
 
+function newGame(req, res){
+  const newGame = new Game()
+  const thisYear = newGame.year
+
+  res.render('games/new', {
+    title: 'Add Board Game',
+    thisYear,
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
+}
+
 export {
   index,
+  newGame as new,
 }

@@ -5,6 +5,9 @@
 <body>
   <nav>
     <% if (user) { %>
+      <a href="/games/new" class="right">
+        <button type="submit">Create</button>
+      </a>
       <a href="/auth/logout" class="right">
         <button type="submit">Logout</button>
       </a>
