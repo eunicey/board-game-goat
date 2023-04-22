@@ -1,12 +1,13 @@
 import { Game } from "../models/game.js"
 
-function index(req, res){
-  res.render('games/index', {
-    title: "Top Ten Board Games"
-  })
-}
+// function index(req, res){
+//   res.render('games/index', {
+//     title: "Top Ten Board Games"
+//   })
+// }
 
 function newGame(req, res){
+  // console.log('test')
   const newGame = new Game()
   const thisYear = newGame.year
 
@@ -20,7 +21,19 @@ function newGame(req, res){
   })
 }
 
+function create (req, res){
+  Game.create(req.body)
+  .then(game => {
+    res.redirect('/')
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
+}
+
 export {
-  index,
+  // index,
   newGame as new,
+  create,
 }

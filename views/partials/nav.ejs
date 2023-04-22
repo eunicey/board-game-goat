@@ -3,30 +3,30 @@
   <% } %>
 </head>
 <body>
-  <nav>
-    <% if (user) { %>
-      <a href="/games/new" class="right">
-        <button type="submit">Create</button>
-      </a>
-      <a href="/auth/logout" class="right">
-        <button type="submit">Logout</button>
-      </a>
-    <% } else { %>
-      <div 
-        id="g_id_onload"
-        data-client_id="<%= googleClientID %>"
-        data-login_uri="/auth/google"
-        data-auto_prompt="false"
-        data-prompt_parent_id="g_id_onload"
-      ></div>
-      <div 
-        class="g_id_signin right"
-        data-type="standard"
-        data-size="large"
-        data-theme="outline"
-        data-text="sign_in_with"
-        data-shape="rectangular"
-        data-logo_alignment="left"
-      ></div>
-    <% } %>
-  </nav>
+<nav>
+  <% if (user) { %>
+    <a href="/games/new" class="right">
+      <button type="submit">Create</button>
+    </a>
+    <a href="/auth/logout" class="right">
+      <button type="submit">Logout</button>
+    </a>
+  <% } else { %>
+    <div 
+      id="g_id_onload"
+      data-client_id="<%= googleClientID %>"
+      data-login_uri="/auth/google"
+      data-auto_prompt="false"
+      data-prompt_parent_id="g_id_onload"
+    ></div>
+    <div 
+      class="g_id_signin right"
+      data-type="standard"
+      data-size="large"
+      data-theme="outline"
+      data-text="sign_in_with"
+      data-shape="rectangular"
+      data-logo_alignment="left"
+    ></div>
+  <% } %>
+</nav>
