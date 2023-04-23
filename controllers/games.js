@@ -2,6 +2,7 @@ import { Game } from "../models/game.js"
 
 const categoryOptions = ['Co-Op', 'Engine Builder', 'Deck Builder', 'Worker Placement', 'Social Deduction', 'RPG']
 const durationOptions = ['< 30 min', '1 - 1.5 hrs', '2+ hrs']
+const ratingOptions = [1, 2, 3, 4, 5]
 
 function index(req, res){
   Game.find({})
@@ -50,6 +51,7 @@ function show (req, res){
     res.render('games/show',{
       game,
       title: game.name,
+      ratingOptions,
     })
   })
   .catch(err => {
@@ -110,6 +112,26 @@ function deleteGame(req, res){
   })
 }
 
+function createComment(req, res){
+  Game.findById(req.params.gameId)
+  .then(game => {
+    req.body.author = req.user.profile._id
+    game.reviews.push(req.body)
+    game.save()
+    .then(()=> {
+      res.redirect(`/games/${game._id}`)
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/')
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
+}
+
 export {
   index,
   newGame as new,
@@ -118,4 +140,5 @@ export {
   edit,
   update,
   deleteGame as delete,
+  createComment,
 }

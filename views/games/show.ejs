@@ -33,8 +33,14 @@
     <% if (user) { %>
       <h3>Add a review</h3>
       <form action="/games/<%= game._id %>/reviews" method="POST">
-        <textarea name="review" id="review-input" ></textarea><br>
-        <button>Post Review</button>
+        <label for="rating-input">Rate:</label>
+        <select name="rating" id="rating-input" >
+          <% ratingOptions.forEach(score => { %>
+            <option value="<%= score %>"><%= score %></option>
+          <% }) %>
+        </select><br>
+        <textarea name="content" id="review-input" ></textarea><br>
+        <button id="review-btn">Post Review</button>
       </form>
     <% } %>
   </section>
