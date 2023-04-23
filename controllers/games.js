@@ -9,6 +9,10 @@ function index(req, res){
       title: "Top Ten Board Games",
     })
   })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
 }
 
 function newGame(req, res){
@@ -86,6 +90,17 @@ function update (req, res){
   })
 }
 
+function deleteGame(req, res){
+  Game.findByIdAndDelete(req.params.gameId)
+  .then(()=>{
+    res.redirect('/games')
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
+}
+
 export {
   index,
   newGame as new,
@@ -93,4 +108,5 @@ export {
   show,
   edit,
   update,
+  deleteGame as delete,
 }
