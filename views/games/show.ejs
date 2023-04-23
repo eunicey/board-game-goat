@@ -46,6 +46,11 @@
     <ul>
       <% game.reviews?.forEach(review => { %>
         <li> <%= review.rating %> - <%= review.content %> - <%= review.author.name %> </li> 
+        <% if (review.author.equals(user?.profile._id)) { %>
+          <a href="/games/<%= game._id %>/reviews/<%= review._id %>/edit">
+            <button class="btn">Edit Comment</button>
+          </a>
+        <% } %> 
       <% }) %>
     </ul>
   </section>

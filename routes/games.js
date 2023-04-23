@@ -16,6 +16,9 @@ router.get('/:gameId', gamesCtrl.show)
 // GET localhost:3000/games/:gameId/edit
 router.get('/:gameId/edit', isLoggedIn, gamesCtrl.edit)
 
+// GET localhost:3000/games/:gameId/reviews/:reviewId/edit
+router.get('/:gameId/reviews/:reviewId/edit', isLoggedIn, gamesCtrl.editReview)
+
 // PUT localhost:3000/games/:gameId
 router.put('/:gameId', isLoggedIn, gamesCtrl.update)
 

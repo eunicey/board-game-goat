@@ -48,7 +48,7 @@ function show (req, res){
   Game.findById(req.params.gameId)
   .populate([
     {path: "owner"},
-    {path: "reviews.author"}
+    {path: "reviews.author"} //why the author specifically?
   ])
   .then(game => {
     res.render('games/show',{
