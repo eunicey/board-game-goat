@@ -115,7 +115,7 @@ function deleteGame(req, res){
   })
 }
 
-function createComment(req, res){
+function createReview(req, res){
   Game.findById(req.params.gameId)
   .then(game => {
     req.body.author = req.user.profile._id
@@ -189,7 +189,7 @@ export {
   edit,
   update,
   deleteGame as delete,
-  createComment,
+  createReview,
   editReview,
   updateReview,
 }
