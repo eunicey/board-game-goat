@@ -43,6 +43,11 @@
         <button id="review-btn">Post Review</button>
       </form>
     <% } %>
+    <ul>
+      <% game.reviews?.forEach(review => { %>
+        <li> <%= review.rating %> - <%= review.content %> - <%= review.author.name %> </li> 
+      <% }) %>
+    </ul>
   </section>
 
 
