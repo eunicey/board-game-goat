@@ -50,6 +50,9 @@
           <a href="/games/<%= game._id %>/reviews/<%= review._id %>/edit">
             <button class="btn">Edit Comment</button>
           </a>
+          <form action="/games/<%= game._id %>/reviews/<%= review._id %>?_method=DELETE" method="POST">
+            <button type="submit" id="delete-btn">Delete Comment</button>
+          </form>
         <% } %> 
       <% }) %>
     </ul>
