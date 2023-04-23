@@ -22,6 +22,9 @@ router.get('/:gameId/reviews/:reviewId/edit', isLoggedIn, gamesCtrl.editReview)
 // PUT localhost:3000/games/:gameId
 router.put('/:gameId', isLoggedIn, gamesCtrl.update)
 
+// PUT localhost:3000/games/:gameId/reviews/:reviewId
+router.put('/:gameId/reviews/:reviewId', isLoggedIn, gamesCtrl.updateReview)
+
 // POST localhost:3000/games
 router.post('/', isLoggedIn, gamesCtrl.create)
 
