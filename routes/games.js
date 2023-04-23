@@ -22,6 +22,8 @@ router.put('/:gameId', isLoggedIn, gamesCtrl.update)
 // POST localhost:3000/games
 router.post('/', isLoggedIn, gamesCtrl.create)
 
+// DELETE localhost:3000/games/:gameId
+router.delete('/:gameId', isLoggedIn, gamesCtrl.delete)
 
 export {
   router
