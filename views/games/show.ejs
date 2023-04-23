@@ -3,6 +3,11 @@
 <%- include('../partials/nav') %>
 
 <main>
+  <% if (game.owner.equals(user?.profile._id)) { %>
+    <a href="/games/<%= game._id %>/edit">
+      <button class="btn" id="edit-btn">Edit</button>
+    </a>
+  <% } %>
   <img src="<%= game.imgUrl %>" alt="<%= game.name %>">
   <h1><%= game.name %></h1>
   <table>
