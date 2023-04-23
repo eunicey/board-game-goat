@@ -1,8 +1,13 @@
 import { Game } from "../models/game.js"
 
 function index(req, res){
-  res.render('games/index', {
-    title: "Top Ten Board Games"
+  Game.find({})
+  .sort('avgRating')
+  .then(games => {
+    res.render('games/index', {
+      games,
+      title: "Top Ten Board Games",
+    })
   })
 }
 

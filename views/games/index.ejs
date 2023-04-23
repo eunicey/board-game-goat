@@ -1,9 +1,32 @@
 <%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/forms.css" />
 <%- include('../partials/nav') %>
 
 <main>
-  <h1>"This is games/index"</h1>
-  
+  <h1><%= title %></h1>
+  <table id="list">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Title</th>
+        <th>Avg Rating</th>
+        <th>Reviews</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% games.forEach((game) => { %>
+      <tr>
+        <td><img 
+          src="<%= game.imgUrl %>"
+          alt="<%= game.name %>"
+        /></td>
+        <td><%= game.name %></td>
+        <td><%= game.avgRating %></td>
+        <td><%= game.totReviews %></td>
+      </tr>
+      <% }) %>
+    </tbody>
+  </table>
 </main>
 
 <%- include('../partials/footer') %>

@@ -59,18 +59,19 @@ const gameSchema = new Schema({
     max: 5,
     default: 3,
   },
-  online: Boolean,
   year: {
     type: Number,
     default: function(){
       return new Date().getFullYear()
     },
   },
-  votes: {
+  totReviews: {
     type: Number,
     default: 0,
   },
 
+  avgRating: Number,
+  online: Boolean,
   reviews: [reviewSchema],
   owner: { type: Schema.Types.ObjectId, ref: 'Profile' },
 }, {
