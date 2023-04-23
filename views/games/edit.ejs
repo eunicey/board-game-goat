@@ -4,7 +4,7 @@
 
 <main>
   <h1><%= title %></h1>
-  <form id="new-form" action="/games/<%= game._id %>?_method=PUT" method="POST">
+  <form id="edit-form" action="/games/<%= game._id %>?_method=PUT" method="POST">
     <label for="name-input">Name of Board Game:</label>
     <input type="text" name="name" autocomplete="off" id="name-input" value="<%= game.name %>">
     <label for="imgUrl-input">Image url:</label>
@@ -34,6 +34,9 @@
     <input type="number" name="year" id="year-input" value="<%= game.year %>">
     <button type="submit">Save Changes</button>
 
+  </form>
+  <form id="delete-form" action="/games/<%= game._id %>?_method=DELETE" method="POST">
+    <button type="submit">Delete Game</button>
   </form>
 </main>
 

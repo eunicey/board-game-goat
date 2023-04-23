@@ -19,10 +19,6 @@ function newGame(req, res){
     title: 'Add Board Game',
     thisYear,
   })
-  .catch(err => {
-    console.log(err)
-    res.redirect('/')
-  })
 }
 
 function create (req, res){
@@ -73,7 +69,6 @@ function update (req, res){
     if (game.owner.equals(req.user.profile._id)){
       req.body.online = !!req.body.online
       game.updateOne(req.body)
-      // game.save()
       .then(() => {
         res.redirect(`/games/${game._id}`)
       })
