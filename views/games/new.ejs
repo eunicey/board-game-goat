@@ -11,9 +11,20 @@
     <input type="text" name="imgUrl" autocomplete="off" id="imgUrl-input">
 
     <label for="category-input">Category:</label>
-    <input type="text" name="category" id="category-input">
+    <select name="category" id="category-input">
+      <option value="Co-Op">Co-Op</option>
+      <option value="Engine Builder">Engine Builder</option>
+      <option value="Deck Builder">Deck Builder</option>
+      <option value="Worker Placement">Worker Placement</option>
+      <option value="Social Deduction">Social Deduction</option>
+      <option value="RPG">RPG</option>
+    </select>
     <label for="duration-input">Play time:</label>
-    <input type="text" name="duration" id="duration-input">
+    <select name="duration" id="duration-input">
+      <option value="< 30 min">< 30 min</option>
+      <option value="1 - 1.5 hrs"> 1 - 1.5 hrs</option>
+      <option value="2+ hrs">2+ hrs</option>
+    </select>
 
     <label for="minPlayers-input">Minimum Players:</label>
     <input type="number" name="minPlayers" id="minPlayers-input" value="1">
