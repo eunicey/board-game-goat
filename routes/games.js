@@ -13,6 +13,10 @@ router.get('/new', isLoggedIn, gamesCtrl.new)
 // GET localhost:3000/games/:gameId
 router.get('/:gameId', gamesCtrl.show)
 
+// GET localhost:3000/games/:gameId/edit
+router.get('/:gameId/edit', gamesCtrl.edit)
+
+
 // POST localhost:3000/games
 router.post('/',  isLoggedIn, gamesCtrl.create)
 
