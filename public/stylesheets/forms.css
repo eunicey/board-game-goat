@@ -17,3 +17,13 @@ form > button {
   margin-left: auto;
   font-size: 22px;
 }
+
+#review-input {
+  width: 400px;
+  height: 100px;
+  padding: 12px 20px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+}
