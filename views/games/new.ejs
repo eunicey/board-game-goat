@@ -12,18 +12,16 @@
 
     <label for="category-input">Category:</label>
     <select name="category" id="category-input">
-      <option value="Co-Op">Co-Op</option>
-      <option value="Engine Builder">Engine Builder</option>
-      <option value="Deck Builder">Deck Builder</option>
-      <option value="Worker Placement">Worker Placement</option>
-      <option value="Social Deduction">Social Deduction</option>
-      <option value="RPG">RPG</option>
+      <% categoryOptions.forEach(category => { %>
+        <option value="<%= category %>"><%= category %></option>
+      <% }) %>
     </select>
+    
     <label for="duration-input">Play time:</label>
     <select name="duration" id="duration-input">
-      <option value="< 30 min">< 30 min</option>
-      <option value="1 - 1.5 hrs"> 1 - 1.5 hrs</option>
-      <option value="2+ hrs">2+ hrs</option>
+      <% durationOptions.forEach(duration => { %>
+        <option value="<%= duration %>"><%= duration %></option>
+      <% }) %>
     </select>
 
     <label for="minPlayers-input">Minimum Players:</label>

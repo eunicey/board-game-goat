@@ -23,12 +23,12 @@ const gameSchema = new Schema({
   imgUrl: String,
   category: {
     type: String,
-    enum: ['Co-Op', 'Engine Builder', 'Deck Builder', 'Worker Placement', 'Social Deduction', 'RPG'],
+    // enum: ['Co-Op', 'Engine Builder', 'Deck Builder', 'Worker Placement', 'Social Deduction', 'RPG'],
     default: 'Co-Op',
   },
   duration: {
     type: String,
-    enum: ['< 30 min', '1 - 1.5 hrs', '2+ hrs'],
+    // enum: ['< 30 min', '1 - 1.5 hrs', '2+ hrs'],
     default: '1 - 1.5 hrs',
   },
   minPlayers: {

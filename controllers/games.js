@@ -1,5 +1,8 @@
 import { Game } from "../models/game.js"
 
+const categoryOptions = ['Co-Op', 'Engine Builder', 'Deck Builder', 'Worker Placement', 'Social Deduction', 'RPG']
+const durationOptions = ['< 30 min', '1 - 1.5 hrs', '2+ hrs']
+
 function index(req, res){
   Game.find({})
   .sort('avgRating')
@@ -22,6 +25,8 @@ function newGame(req, res){
   res.render('games/new', {
     title: 'Add Board Game',
     thisYear,
+    categoryOptions,
+    durationOptions,
   })
 }
 
@@ -56,9 +61,13 @@ function show (req, res){
 function edit (req, res){
   Game.findById(req.params.gameId)
   .then(game => {
+    const otherCategories = categoryOptions.filter(category => category !== game.category)
+    const otherDurations = durationOptions.filter(duration => duration !== game.duration)
     res.render('games/edit', {
       game,
       title: `Edit ${game.name}`,
+      otherCategories,
+      otherDurations,
     })
   })
   .catch(err => {

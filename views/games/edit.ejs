@@ -11,9 +11,20 @@
     <input type="text" name="imgUrl" autocomplete="off" id="imgUrl-input" value="<%= game.imgUrl %>">
 
     <label for="category-input">Category:</label>
-    <input type="text" name="category" id="category-input" value="<%= game.category %>">
+    <select name="category" id="category-input">
+      <option value="<%= game.category %>"><%= game.category %></option>
+      <% otherCategories.forEach(category => { %>
+        <option value="<%= category %>"><%= category %></option>
+      <% }) %>
+    </select>
+    
     <label for="duration-input">Play time:</label>
-    <input type="text" name="duration" id="duration-input" value="<%= game.duration %>">
+    <select name="duration" id="duration-input">
+      <option value="<%= game.duration %>"><%= game.duration %></option>
+      <% otherDurations.forEach(duration => { %>
+        <option value="<%= duration %>"><%= duration %></option>
+      <% }) %>
+    </select>
 
     <label for="minPlayers-input">Minimum Players:</label>
     <input type="number" name="minPlayers" id="minPlayers-input" value="<%= game.minPlayers %>">
