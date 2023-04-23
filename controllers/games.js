@@ -67,10 +67,35 @@ function edit (req, res){
   })
 }
 
+function update (req, res){
+  Game.findById(req.params.gameId)
+  .then(game =>{
+    if (game.owner.equals(req.user.profile._id)){
+      req.body.online = !!req.body.online
+      game.updateOne(req.body)
+      // game.save()
+      .then(() => {
+        res.redirect(`/games/${game._id}`)
+      })
+      .catch(err => {
+        console.log(err)
+        res.redirect('/')
+      })
+    } else {
+    // ADD ERROR MESSAGE: YOU ARE NOT AUTHORIZED TO EDIT THIS GAME
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
+}
+
 export {
   index,
   newGame as new,
   create,
   show,
   edit,
+  update,
 }
