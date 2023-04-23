@@ -4,7 +4,7 @@
 
 <main>
   <h1><%= title %></h1>
-  <form id="new-form" action="/games" method="POST">
+  <form id="new-form" action="/games/<%= game._id %> ?_method=PUT" method="POST">
     <label for="name-input">Name of Board Game:</label>
     <input type="text" name="name" autocomplete="off" id="name-input" value="<%= game.name %>">
     <label for="imgUrl-input">Image url:</label>
