@@ -16,11 +16,11 @@
     <tbody>
       <% games.forEach((game) => { %>
       <tr>
-        <td><img 
+        <td><a href="/games/<%= game._id %>"><img 
           src="<%= game.imgUrl %>"
           alt="<%= game.name %>"
-        /></td>
-        <td><%= game.name %></td>
+        ></a></td>
+        <td><a href="/games/<%= game._id %>"><%= game.name %></a></td>
         <td><%= game.avgRating %></td>
         <td><%= game.totReviews %></td>
       </tr>

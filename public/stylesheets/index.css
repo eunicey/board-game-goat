@@ -12,7 +12,7 @@ table td {
   text-align: center;
 }
 
-#list a {
+/* #list a {
   border-radius: 4px;
   background-color: #b8c0c2;
   padding: 4px;
@@ -27,7 +27,7 @@ table td {
 
 #list a:hover {
   background-color: white;
-}
+} */
 
 img {
   border-radius: 4px;
