@@ -157,6 +157,29 @@ function editReview (req, res){
   })
 }
 
+function updateReview (req, res){
+  Game.findById(req.params.gameId)
+  .then(game => {
+    const review = game.reviews.id(req.params.reviewId)
+    if (review.author.equals(req.user.profile._id)){
+      review.set(req.body)
+      game.save()
+      .then(()=> {
+        res.redirect(`/games/${game._id}`)
+      })
+      .catch(err => {
+        console.log(err)
+        res.redirect('/')
+      })
+    } else {
+      throw new Error('🚫 YOU ARE NOT AUTHORIZED TO EDIT THIS COMMENT 🚫')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
+}
 
 export {
   index,
@@ -168,4 +191,5 @@ export {
   deleteGame as delete,
   createComment,
   editReview,
+  updateReview,
 }
