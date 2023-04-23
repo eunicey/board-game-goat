@@ -11,7 +11,7 @@ const reviewSchema = new Schema({
     max: 5, 
     default: 3,
   },
-  owner: { type: Schema.Types.ObjectId, ref: 'Profile' },
+  author: { type: Schema.Types.ObjectId, ref: 'Profile' },
   game: { type: Schema.Types.ObjectId, ref: 'Game' },
 })
 
