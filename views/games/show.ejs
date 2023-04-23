@@ -1,10 +1,30 @@
 <%- include('../partials/html-head') %>
-<link rel="stylesheet" href="/stylesheets/forms.css" />
+<link rel="stylesheet" href="/stylesheets/show.css" />
 <%- include('../partials/nav') %>
 
 <main>
-  <h1><%= title %></h1>
-  </form>
+  <img src="<%= game.imgUrl %>" alt="<%= game.name %>">
+  <h1><%= game.name %></h1>
+  <table>
+    <tr>
+      <td>Released <%= game.year %></td>
+      <td>Categories <%= game.category %></td>
+      <td>Complexity <%= game.complexity %></td>
+    </tr>
+    <tr>
+      <td><%= game.online ? 'Available online!' : 'Not Online'%></td>
+      <td>Players <%= game.minPlayers %> - <%= game.maxPlayers %></td>
+      <td>Strategy <%= game.strategy %></td>
+    </tr>
+    <tr>
+      <td>Created by <%= game.owner.name  %></td>
+      <td>Game Play <%= game.duration %></td>
+      <td>Luck <%= game.luck %></td>
+    </tr>
+    
+  </table>
+
+
 </main>
 
 <%- include('../partials/footer') %>
