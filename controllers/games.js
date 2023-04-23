@@ -95,7 +95,7 @@ function update (req, res){
         res.redirect('/')
       })
     } else {
-    // ADD ERROR MESSAGE: YOU ARE NOT AUTHORIZED TO EDIT THIS GAME
+      throw new Error('🚫 YOU ARE NOT AUTHORIZED TO EDIT THIS GAME 🚫')
     }
   })
   .catch(err => {
@@ -135,6 +135,27 @@ function createComment(req, res){
   })
 }
 
+function editReview (req, res){
+  Game.findById(req.params.gameId)
+  .then(game => {
+    const review = game.reviews.id(req.params.reviewId)
+    if (review.author.equals(req.user.profile._id)){
+      res.render('games/editComment',{
+        game,
+        review,
+        title: 'Update Review',
+      })
+    } else {
+      throw new Error('🚫 YOU ARE NOT AUTHORIZED TO EDIT THIS COMMENT 🚫')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
+}
+
+
 export {
   index,
   newGame as new,
@@ -144,4 +165,5 @@ export {
   update,
   deleteGame as delete,
   createComment,
+  editReview,
 }
