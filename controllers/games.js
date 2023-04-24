@@ -5,9 +5,8 @@ const durationOptions = ['< 30 min', '1 - 1.5 hrs', '2+ hrs']
 const ratingOptions = [1, 2, 3, 4, 5]
 
 function averageRatings (reviews) {
-  reviews.length ? reviews.reduce((acc, curr) => acc + curr.rating, 0) / reviews.length : 0
+  return reviews.length ? reviews.reduce((acc, curr) => acc + curr.rating, 0) / reviews.length : 0
 }
-
 
 function index(req, res){
   Game.find({})
@@ -126,7 +125,7 @@ function createReview(req, res){
     req.body.author = req.user.profile._id
     game.reviews.push(req.body)
 
-    game.avgRating = game.reviews.length ? game.reviews.reduce((acc, curr) => acc + curr.rating, 0) / game.reviews.length : 0
+    game.avgRating = averageRatings(game.reviews)
     game.totReviews = game.reviews.length
 
     game.save()
@@ -172,7 +171,7 @@ function updateReview (req, res){
     const review = game.reviews.id(req.params.reviewId)
     if (review.author.equals(req.user.profile._id)){
       review.set(req.body)
-      game.avgRating = game.reviews.length ? game.reviews.reduce((acc, curr) => acc + curr.rating, 0) / game.reviews.length : 0
+      game.avgRating = averageRatings(game.reviews)
       game.save()
       .then(()=> {
         res.redirect(`/games/${game._id}`)
@@ -199,7 +198,7 @@ function deleteReview (req, res){
       game.reviews.remove(review)
 
       game.totReviews = game.reviews.length
-      game.avgRating = game.reviews.length ? game.reviews.reduce((acc, curr) => acc + curr.rating, 0) / game.reviews.length : 0
+      game.avgRating = averageRatings(game.reviews)
 
       game.save()
       .then(() => {

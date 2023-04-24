@@ -9,7 +9,8 @@
     </a>
   <% } %>
   <% if (user) { %>
-    <form action="/profiles/<%= game._id %>/favorites" method="POST"> 
+    <!-- <form action="/profiles/<%#= game._id %>/favorites" method="POST">  -->
+      <form action="/profiles/games/<%= game._id %>" method="POST"> 
       <button type="submit" id="favorites-btn">Add to favorites</button> <br>
     </form>
   <% } %>

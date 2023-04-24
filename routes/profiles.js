@@ -11,7 +11,8 @@ const router = Router()
 router.get('/', isLoggedIn, profilesCtrl.show)
 
 //POST localhost:3000/profiles/:gameId/favorites
-router.post('/:gameId/favorites', isLoggedIn, profilesCtrl.addToFavorites)
+// router.post('/:gameId/favorites', isLoggedIn, profilesCtrl.addToFavorites)
+router.post('/games/:gameId', isLoggedIn, profilesCtrl.addToFavorites)
 
 //DELETE localhost:3000/profiles/favorites/:favoriteId
 router.delete('/favorites/:favoriteId', isLoggedIn, profilesCtrl.removeFromFavorites)
