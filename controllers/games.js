@@ -181,6 +181,30 @@ function updateReview (req, res){
   })
 }
 
+function deleteReview (req, res){
+  Game.findById(req.params.gameId)
+  .then (game => {
+    const review = game.reviews.id(req.params.reviewId)
+    if (review.author.equals (req.user.profile._id)){
+      game.reviews.remove(review)
+      game.save()
+      .then(() => {
+        res.redirect(`/games/${game._id}`)  
+      })
+      .catch(err => {
+        console.log(err)
+        res.redirect('/')
+      })
+    } else {
+      throw new Error('🚫 YOU ARE NOT AUTHORIZED TO DELETE THIS COMMENT 🚫')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
+}
+
 export {
   index,
   newGame as new,
@@ -192,4 +216,5 @@ export {
   createReview,
   editReview,
   updateReview,
+  deleteReview,
 }
