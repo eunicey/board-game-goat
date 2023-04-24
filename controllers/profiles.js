@@ -19,11 +19,13 @@ function show (req, res){
   Profile.findById(req.user.profile._id)
   .populate('favorites')
   .then(profile => {
+    const isSelf = profile._id.equals(req.user.profile._id)
     const favorites = profile.favorites
     res.render('profiles/show', {
       title: `${profile.name}'s profile`,
       profile,
       favorites,
+      isSelf,
     })
   })
   .catch(err => {
@@ -32,7 +34,7 @@ function show (req, res){
   })
 }
 
-function addToFavList (req, res){
+function addToFavorites (req, res){
   Game.findById(req.params.gameId)
   .then(game => {
     Profile.findById(req.user.profile._id)
@@ -41,7 +43,7 @@ function addToFavList (req, res){
       profile.favorites.push(game._id)
       profile.save()
       .then(() => {
-        res.redirect('/games')
+        res.redirect(`/games/${game._id}`)
       })
       .catch(err => {
         console.log(err)
@@ -59,8 +61,30 @@ function addToFavList (req, res){
   })
 }
 
+function removeFromFavorites (req, res){
+  Profile.findById(req.user.profile._id)
+  .populate('favorites')
+  .then(profile => {
+    profile.favorites.remove({_id: req.params.favoriteId})
+    profile.save()
+    .then(() => {
+      res.redirect('/profiles')
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/')
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
+}
+
+
 export {
   // index,
   show,
-  addToFavList,
+  addToFavorites,
+  removeFromFavorites,
 }

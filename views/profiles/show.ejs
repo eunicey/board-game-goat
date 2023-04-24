@@ -13,10 +13,11 @@
           >
           <div class="card-body">
             <h1 class="card-title"><%= favorite.name %></h1>
-            <form id="delete-form" action="/profiles/<%= game._id %>?_method=DELETE" method="POST">
-              <button type="submit">Remove from Favorites</button>
-              <form action="/profiles/<%= game._id %>/favorites" method="POST"> 
-            </form>
+            <% if (isSelf)  {%> 
+              <form id="delete-form" action="/profiles/favorites/<%= favorite._id %>?_method=DELETE" method="POST">
+                <button type="submit">Remove from Favorites</button>
+              </form>
+            <% } %>
           </div>
         </div>
       </a>

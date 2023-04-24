@@ -4,53 +4,51 @@
 
 <main>
   <h1><%= title %></h1>
-  <% if  (game.owner.equals(user?.profile._id)) { %>
-    <form id="edit-form" action="/games/<%= game._id %>?_method=PUT" method="POST">
-      <label for="name-input">Name of Board Game:</label>
-      <input type="text" name="name" autocomplete="off" id="name-input" value="<%= game.name %>">
-      <label for="imgUrl-input">Image url:</label>
-      <input type="text" name="imgUrl" autocomplete="off" id="imgUrl-input" value="<%= game.imgUrl %>">
+  <form id="edit-form" action="/games/<%= game._id %>?_method=PUT" method="POST">
+    <label for="name-input">Name of Board Game:</label>
+    <input type="text" name="name" autocomplete="off" id="name-input" value="<%= game.name %>">
+    <label for="imgUrl-input">Image url:</label>
+    <input type="text" name="imgUrl" autocomplete="off" id="imgUrl-input" value="<%= game.imgUrl %>">
 
-      <label for="category-input">Category:</label>
-      <select name="category" id="category-input">
-        <option value="<%= game.category %>"><%= game.category %></option>
-        <% otherCategories.forEach(category => { %>
-          <option value="<%= category %>"><%= category %></option>
-        <% }) %>
-      </select>
+    <label for="category-input">Category:</label>
+    <select name="category" id="category-input">
+      <option value="<%= game.category %>"><%= game.category %></option>
+      <% otherCategories.forEach(category => { %>
+        <option value="<%= category %>"><%= category %></option>
+      <% }) %>
+    </select>
 
-      <label for="duration-input">Play time:</label>
-      <select name="duration" id="duration-input">
-        <option value="<%= game.duration %>"><%= game.duration %></option>
-        <% otherDurations.forEach(duration => { %>
-          <option value="<%= duration %>"><%= duration %></option>
-        <% }) %>
-      </select>
+    <label for="duration-input">Play time:</label>
+    <select name="duration" id="duration-input">
+      <option value="<%= game.duration %>"><%= game.duration %></option>
+      <% otherDurations.forEach(duration => { %>
+        <option value="<%= duration %>"><%= duration %></option>
+      <% }) %>
+    </select>
 
-      <label for="minPlayers-input">Minimum Players:</label>
-      <input type="number" name="minPlayers" id="minPlayers-input" value="<%= game.minPlayers %>">
-      <label for="maxPlayers-input">Maximum Players:</label>
-      <input type="number" name="maxPlayers" id="maxPlayers-input" value="<%= game.maxPlayers %>">
+    <label for="minPlayers-input">Minimum Players:</label>
+    <input type="number" name="minPlayers" id="minPlayers-input" value="<%= game.minPlayers %>">
+    <label for="maxPlayers-input">Maximum Players:</label>
+    <input type="number" name="maxPlayers" id="maxPlayers-input" value="<%= game.maxPlayers %>">
 
-      <label for="comlexity-input">Complexity:</label>
-      <input type="number" name="complexity" id="complexity-input" value="<%= game.complexity %>">
-      <label for="strategy-input">Strategy:</label>
-      <input type="number" name="strategy" id="strategy-input" value="<%= game.strategy %>">
-      <label for="luck-input">Luck:</label>
-      <input type="number" name="luck" id="luck-input" value="<%= game.luck %>">
+    <label for="comlexity-input">Complexity:</label>
+    <input type="number" name="complexity" id="complexity-input" value="<%= game.complexity %>">
+    <label for="strategy-input">Strategy:</label>
+    <input type="number" name="strategy" id="strategy-input" value="<%= game.strategy %>">
+    <label for="luck-input">Luck:</label>
+    <input type="number" name="luck" id="luck-input" value="<%= game.luck %>">
 
-      <label for="online-input">Available Online:</label>
-      <input type="checkbox" name="online" id="online-input" <%= game.online ? "checked" : "" %>>
+    <label for="online-input">Available Online:</label>
+    <input type="checkbox" name="online" id="online-input" <%= game.online ? "checked" : "" %>>
 
-      <label for="year-input">Release Year:</label>
-      <input type="number" name="year" id="year-input" value="<%= game.year %>">
-      <button type="submit">Save Changes</button>
+    <label for="year-input">Release Year:</label>
+    <input type="number" name="year" id="year-input" value="<%= game.year %>">
+    <button type="submit">Save Changes</button>
 
-    </form>
-    <form id="delete-form" action="/games/<%= game._id %>?_method=DELETE" method="POST">
-      <button type="submit">Delete Game</button>
-    </form>
-  <% } %>
+  </form>
+  <form id="delete-form" action="/games/<%= game._id %>?_method=DELETE" method="POST">
+    <button type="submit">Delete Game</button>
+  </form>
 </main>
 
 <%- include('../partials/footer') %>
