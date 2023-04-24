@@ -2,13 +2,25 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <div>
-    <h1><%= profile.name %></h1>
-    <img 
-      class="profile-avatar"
-      src="<%= profile.avatar %>" 
-      alt="<%= profile.name %>'s avatar"
-    >
+  <h1><%= title %></h1>
+  <div class="card-container">
+    <% favorites.forEach(favorite => { %>
+      <a class="text-decoration-none" href="/games/<%= favorite._id %>">
+        <div class="card">
+          <img 
+            src="<%= favorite.imgUrl %>" 
+            alt="<%= favorite.name %>'s avatar"
+          >
+          <div class="card-body">
+            <h1 class="card-title"><%= favorite.name %></h1>
+            <form id="delete-form" action="/profiles/<%= game._id %>?_method=DELETE" method="POST">
+              <button type="submit">Remove from Favorites</button>
+              <form action="/profiles/<%= game._id %>/favorites" method="POST"> 
+            </form>
+          </div>
+        </div>
+      </a>
+    <% }) %>
   </div>
 </main>
 
