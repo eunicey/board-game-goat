@@ -15,6 +15,10 @@
   <% } %>
   <img src="<%= game.imgUrl %>" alt="<%= game.name %>">
   <h1><%= game.name %></h1>
+  <% if (game.totReviews) { %>
+    <h3><%= game.totReviews %></h3>
+    <h3><%= game.avgRating %></h3>
+  <% } %>
   <table>
     <tr>
       <td>Released <%= game.year %></td>
