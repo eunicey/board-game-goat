@@ -1,4 +1,5 @@
 import { Profile } from '../models/profile.js'
+import { Game } from '../models/game.js'
 
 function index(req, res) {
   Profile.find({})
@@ -15,7 +16,6 @@ function index(req, res) {
 }
 
 function show (req, res){
-  // Profile.findById(req.params.whateverId)
   Profile.findById(req.user.profile._id)
   .then(profile => {
     res.render('profiles/show', {
@@ -28,7 +28,36 @@ function show (req, res){
     res.redirect('/')
   })
 }
+
+function addToFavList (req, res){
+  Game.findById(req.params.gameId)
+  .then(game => {
+    Profile.findById(req.user.profile._id)
+    .populate("favorites")
+    .then(profile => {
+      profile.favorites.push(game._id)
+      profile.save()
+      .then(() => {
+        res.redirect('/games')
+      })
+      .catch(err => {
+        console.log(err)
+        res.redirect('/')
+      })
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/')
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
+}
+
 export {
   index,
   show,
+  addToFavList,
 }

@@ -5,29 +5,36 @@
 <main>
   <% if (game.owner.equals(user?.profile._id)) { %>
     <a href="/games/<%= game._id %>/edit">
-      <button class="btn" id="edit-btn">Edit</button>
+      <button id="edit-btn">Edit</button>
     </a>
   <% } %>
-  <img src="<%= game.imgUrl %>" alt="<%= game.name %>">
-  <h1><%= game.name %></h1>
-  <table>
-    <tr>
-      <td>Released <%= game.year %></td>
-      <td>Categories <%= game.category %></td>
-      <td>Complexity <%= game.complexity %></td>
-    </tr>
-    <tr>
-      <td><%= game.online ? 'Available online!' : 'Not Online'%></td>
-      <td>Players <%= game.minPlayers %> - <%= game.maxPlayers %></td>
-      <td>Strategy <%= game.strategy %></td>
-    </tr>
-    <tr>
-      <td>Created by <%= game.owner.name  %></td>
-      <td>Game Play <%= game.duration %></td>
-      <td>Luck <%= game.luck %></td>
-    </tr>
-  </table>
+  <!-- Is it ok to have user.profile._id? Or do I need to feed in the profile object?-->
+    <% if (user) { %>
+      <form action="/profiles/<%= game._id %>/favorites" method="POST"> 
+        <button type="submit" id="favorites-btn">Add to favorites</button> <br>
+      </form>
+    <% } %>
+    <img src="<%= game.imgUrl %>" alt="<%= game.name %>">
+    <h1><%= game.name %></h1>
+    <table>
+      <tr>
+        <td>Released <%= game.year %></td>
+        <td>Categories <%= game.category %></td>
+        <td>Complexity <%= game.complexity %></td>
+      </tr>
+      <tr>
+        <td><%= game.online ? 'Available online!' : 'Not Online'%></td>
+        <td>Players <%= game.minPlayers %> - <%= game.maxPlayers %></td>
+        <td>Strategy <%= game.strategy %></td>
+      </tr>
+      <tr>
+        <td>Created by <%= game.owner.name  %></td>
+        <td>Game Play <%= game.duration %></td>
+        <td>Luck <%= game.luck %></td>
+      </tr>
+    </table>
 
+  
   <section>
     <h2>Reviews</h2>
     <% if (user) { %>

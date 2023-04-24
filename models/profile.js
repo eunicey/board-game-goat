@@ -6,7 +6,8 @@ const Schema = mongoose.Schema
 const profileSchema = new Schema({
   name: String,
   avatar: String,
-  favorites: { type: Schema.Types.ObjectId, ref: 'Game' },
+  favorites:[{ type: Schema.Types.ObjectId, ref: 'Game' }],
+  games: [{ type: Schema.Types.ObjectId, ref: 'Game' }],
   reviews: [reviewSchema],
 }, {
   timestamps: true
