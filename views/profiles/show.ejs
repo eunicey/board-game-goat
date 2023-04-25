@@ -4,17 +4,18 @@
 <main>
   <h1><%= title %></h1>
   <div class="card-container">
-    <% favorites.forEach(favorite => { %>
-      <a class="text-decoration-none" href="/games/<%= favorite._id %>">
+    <% games.forEach(game => { %>
+      <a class="text-decoration-none" href="/games/<%= game._id %>">
         <div class="card">
           <img 
-            src="<%= favorite.imgUrl %>" 
-            alt="<%= favorite.name %>'s avatar"
+            src="<%= game.imgUrl %>" 
+            alt="<%= game.name %>'s avatar"
           >
           <div class="card-body">
-            <h1 class="card-title"><%= favorite.name %></h1>
+            <h1 class="card-title"><%= game.name %></h1>
             <% if (isSelf)  {%> 
-              <form id="delete-form" action="/profiles/favorites/<%= favorite._id %>?_method=DELETE" method="POST">
+              <!-- <form id="delete-form" action="/profiles/favorites/<%#= favorite._id %>?_method=DELETE" method="POST"> -->
+              <form id="delete-form" action="/profiles/games/<%= game._id %>?_method=DELETE" method="POST">
                 <button type="submit">Remove from Favorites</button>
               </form>
             <% } %>

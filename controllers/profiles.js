@@ -20,11 +20,11 @@ function show (req, res){
   .populate('favorites')
   .then(profile => {
     const isSelf = profile._id.equals(req.user.profile._id)
-    const favorites = profile.favorites
+    const games = profile.favorites
     res.render('profiles/show', {
       title: `${profile.name}'s profile`,
       profile,
-      favorites,
+      games,
       isSelf,
     })
   })
@@ -65,7 +65,7 @@ function removeFromFavorites (req, res){
   Profile.findById(req.user.profile._id)
   .populate('favorites')
   .then(profile => {
-    profile.favorites.remove({_id: req.params.favoriteId})
+    profile.favorites.remove({_id: req.params.gameId})
     profile.save()
     .then(() => {
       res.redirect('/profiles')
