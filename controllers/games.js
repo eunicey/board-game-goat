@@ -5,7 +5,7 @@ const durationOptions = ['< 30 min', '1 - 1.5 hrs', '2+ hrs']
 const ratingOptions = [1, 2, 3, 4, 5]
 
 function averageRatings (reviews) {
-  return reviews.length ? reviews.reduce((acc, curr) => acc + curr.rating, 0) / reviews.length : 0
+  return reviews.length ? (reviews.reduce((acc, curr) => acc + curr.rating, 0) / reviews.length).toFixed(1) : 0
 }
 
 function index(req, res){
