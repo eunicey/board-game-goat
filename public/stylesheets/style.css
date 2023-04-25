@@ -18,6 +18,13 @@ body {
   margin: 0;
 }
 
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
 nav {
   background-color: #909794;
   color: black;
@@ -27,19 +34,17 @@ nav {
   min-height: 40px;
 }
 
+nav > div {
+  margin-left: auto;
+}
+
+nav > div > a:link { 
+  text-decoration: none;
+  margin-right: 20px;
+}
+
 .fa-solid {
   color: black;
-}
-
-main {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.right {
-  margin-left: auto;
 }
 
 #home-icon {
