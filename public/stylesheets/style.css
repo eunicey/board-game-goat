@@ -1,5 +1,6 @@
 html {
   box-sizing: border-box;
+  font-family: 'Open Sans', 'Helvetica Neue', 'Segoe UI', sans-serif;
 }
 
 /* The Universal Selector */
@@ -14,19 +15,20 @@ html {
 body {
   background-color: #97ADA5;
   color: black;
-  /* Use a system font, if none are available use any found sans-sarif font */
-  font-family: system-ui, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 
-    'Helvetica Neue', sans-serif;
   margin: 0;
 }
 
 nav {
-  background-color: #f6f6f6;
-  color: #1a1a1a;
+  background-color: #909794;
+  color: black;
   display: flex;
   align-items: center;
-  padding: 10px;
-  min-height: 60px;
+  padding: 0px 20px 0px 20px;
+  min-height: 40px;
+}
+
+.fa-solid {
+  color: black;
 }
 
 main {
@@ -40,3 +42,7 @@ main {
   margin-left: auto;
 }
 
+#home-icon {
+  height: 25px;
+  width: 25px;
+}
