@@ -8,44 +8,62 @@
   </section>
 
   <section class="game-header">
-    <h1><%= game.name %></h1>
-    <% if (user) { %>
-      <form action="/profiles/games/<%= game._id %>" method="POST">
-        <button>
-          <i class="fa-solid fa-heart-circle-plus fa-xl"></i>
-        </button>
-      </form>
-    <% } %>
-    <% if (game.owner.equals(user?.profile._id)) { %>
-      <a href="/games/<%= game._id %>/edit">
-        <button>
-          <i class="fa-solid fa-pen-to-square fa-xl"></i>
-        </button>
-      </a>
-    <% } %>
-    <% if (game.totReviews) { %>
-      <h3><%= game.totReviews %></h3>
-      <h3><%= game.avgRating %></h3>
-    <% } %>
+    <div class="name-fav-edit">
+      <h1><%= game.name %></h1>
+      <% if (user) { %>
+        <form action="/profiles/games/<%= game._id %>" method="POST">
+          <button>
+            <i class="fa-solid fa-heart-circle-plus fa-xl"></i>
+          </button>
+        </form>
+      <% } %>
+      <% if (game.owner.equals(user?.profile._id)) { %>
+        <a href="/games/<%= game._id %>/edit">
+          <button>
+            <i class="fa-solid fa-pen-to-square fa-xl"></i>
+          </button>
+        </a>
+      <% } %>
+    </div>
+    <div class="avgRating">
+      <% if (game.totReviews) { %>
+        <h3><%= game.avgRating %></h3>
+        <h3>(<%= game.totReviews %> reviews)</h3>
+      <% } %>
+    </div>
   </section>
 
   <section class="left">
     <p>Released <%= game.year %></p>
     <p><%= game.online ? 'Play online!' : 'Not online'%></p>
-    <p>Created by <%= game.owner.name %></p>
-
+    <p>Posted by <%= game.owner.name %></p>
   </section>
 
   <section class="middle">
-    <p>Categories <%= game.category %></p>
-    <p>Players <%= game.minPlayers %> - <%= game.maxPlayers %></p>
-    <p>Game Play <%= game.duration %></p>  
+    <div>
+      <p>Category</p>
+      <span class="label category"><%= game.category %></span> 
+    </div>
+    
+    <div>
+      <i class="fa-solid fa-user-group fa-lg"></i>
+      <p><%= game.minPlayers %> - <%= game.maxPlayers %></p>
+    </div>
+
+    <div>
+      <i class="fa-solid fa-clock fa-lg"></i>
+      <p><%= game.duration %></p>  
+    </div>
   </section>
 
   <section class="right">
-    <p>Complexity <%= game.complexity %></p>
-    <p>Strategy <%= game.strategy %></p>
-    <p>Luck <%= game.luck %></p>
+    <p>Complexity <%= game.complexity %> / 5</p>
+  
+
+    <span class="label category"><%= game.category %></span>
+
+    <p>Strategy <%= game.strategy %> / 5</p>
+    <p>Luck <%= game.luck %> / 5</p>
   </section>
     
   <section class="reviews">
