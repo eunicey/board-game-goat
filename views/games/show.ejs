@@ -30,27 +30,25 @@
   </section>
 
   <section class="left">
-  <table>
-    <tr>
-      <td>Released <%= game.year %></td>
-      <td>Categories <%= game.category %></td>
-      <td>Complexity <%= game.complexity %></td>
-    </tr>
+    <p>Released <%= game.year %></p>
+    <p><%= game.online ? 'Play online!' : 'Not online'%></p>
+    <p>Created by <%= game.owner.name %></p>
 
   </section>
-    <tr>
-      <td><%= game.online ? 'Available online!' : 'Not Online'%></td>
-      <td>Players <%= game.minPlayers %> - <%= game.maxPlayers %></td>
-      <td>Strategy <%= game.strategy %></td>
-    </tr>
-    <tr>
-      <td>Created by <%= game.owner.name  %></td>
-      <td>Game Play <%= game.duration %></td>
-      <td>Luck <%= game.luck %></td>
-    </tr>
-  </table>
 
-  <section>
+  <section class="middle">
+    <p>Categories <%= game.category %></p>
+    <p>Players <%= game.minPlayers %> - <%= game.maxPlayers %></p>
+    <p>Game Play <%= game.duration %></p>  
+  </section>
+
+  <section class="right">
+    <p>Complexity <%= game.complexity %></p>
+    <p>Strategy <%= game.strategy %></p>
+    <p>Luck <%= game.luck %></p>
+  </section>
+    
+  <section class="reviews">
     <h2>Reviews</h2>
     <% if (user) { %>
       <h3>Add a review</h3>

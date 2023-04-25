@@ -1,19 +1,42 @@
-img {
-  width: 64px;
-  height: 64px;
+
+main {
+  display: grid;
+  grid-template-areas: "image header header" "left middle right" "reviews reviews reviews";
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 2fr 2fr;
+  /* justify-content: center;
+  align-content: center; */
+  margin: 20px 40px;
 }
 
-table {
-  font-size: 20px;
-}
-table td {
-  padding: 10px 30px;
-  text-align: left;
+section.game-image {
+  grid-area: image;
 }
 
-/* #edit-btn {
+section.game-image > img {
+  width: 100px;
+}
 
-} */
+section.game-header {
+  grid-area: header;
+}
+
+section.left {
+  grid-area: left;
+}
+
+section.middle {
+  grid-area: middle;
+}
+
+section.right {
+  grid-area: right;
+}
+
+section.reviews {
+  grid-area: reviews;
+}
+
 
 #review-input {
   width: 400px;
@@ -25,3 +48,11 @@ table td {
   font-size: 16px;
 }
 
+
+/* table {
+  font-size: 20px;
+}
+table td {
+  padding: 10px 30px;
+  text-align: left;
+} */
