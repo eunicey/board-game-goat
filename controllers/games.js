@@ -10,7 +10,7 @@ function averageRatings (reviews) {
 
 function index(req, res){
   Game.find({})
-  .sort('avgRating')
+  .sort('-avgRating')
   .then(games => {
     res.render('games/index', {
       games,

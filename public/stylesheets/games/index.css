@@ -26,7 +26,7 @@
   border: 2px solid rgb(132, 131, 131);
   border-radius: 10px;
   color: white;
-  padding: 10px;
+  /* padding: 10px; */
   justify-content: center;
   align-items: center;
 }
@@ -37,18 +37,42 @@
 }
 
 .card-body {
-  display: flex;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
 }
 
 .card-title {
   font-size: 18px;
-  margin: 0 10px;
-  text-align: center;
+  margin: 0 10px 20px 0;
 }
 
 a:link { 
   text-decoration: none; 
 }
+
+.fa-layers {
+  position:relative;
+}
+
+.fa-solid {
+  color: green;
+}
+
+.fa-layers-text {
+  color: white;
+  position: absolute;
+  left: 50%; 
+  top: 50%; 
+  transform: translate(-50%, -50%);
+  font-size: 12px;
+}
+
+
+
+
+
+
 /* table {
   font-size: 20px;
 }
