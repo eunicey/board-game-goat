@@ -1,4 +1,55 @@
-table {
+.main {
+  display: flex;
+  justify-content: center;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 20px;
+  max-width: 1600px;
+}
+
+/* .text-decoration-none {
+  text-decoration: none;
+} */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 200px;
+  background-color: black;
+  border: 2px solid rgb(132, 131, 131);
+  border-radius: 10px;
+  color: white;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.card > img {
+  border-radius: 10px;
+  width: 100px;
+}
+
+.card-body {
+  display: flex;
+}
+
+.card-title {
+  font-size: 18px;
+  margin: 0 10px;
+  text-align: center;
+}
+
+a:link { 
+  text-decoration: none; 
+}
+/* table {
   font-size: 20px;
 }
 
@@ -12,7 +63,7 @@ table td {
   text-align: center;
 }
 
-/* #list a {
+#list a {
   border-radius: 4px;
   background-color: #b8c0c2;
   padding: 4px;
@@ -27,12 +78,12 @@ table td {
 
 #list a:hover {
   background-color: white;
-} */
+}
 
 img {
   border-radius: 4px;
-  /* padding: 5px; */
+  padding: 5px;
   width: 64px;
   height: 64px;
-  /* box-sizing: border-box; */
-}
+  box-sizing: border-box;
+} */

@@ -4,7 +4,23 @@
 
 <main>
   <h1><%= title %></h1>
-  <table id="list">
+  <div class="card-container">
+    <% games.forEach((game) => { %>
+      <a href="/games/<%= game._id %>">
+        <div class="card">
+          <div class="card-body">
+            <h1 class="card-title"><%= game.name %></h1>
+          </div>
+
+          <img 
+            src="<%= game.imgUrl %>"
+            alt="<%= game.name %>"
+          >
+        </div>
+      </a>
+    <% }) %>
+  </div>
+  <!-- <table id="list">
     <thead>
       <tr>
         <th></th>
@@ -14,19 +30,19 @@
       </tr>
     </thead>
     <tbody>
-      <% games.forEach((game) => { %>
+      <%# games.forEach((game) => { %>
       <tr>
-        <td><a href="/games/<%= game._id %>"><img 
-          src="<%= game.imgUrl %>"
-          alt="<%= game.name %>"
+        <td><a href="/games/<%#= game._id %>"><img 
+          src="<%#= game.imgUrl %>"
+          alt="<%#= game.name %>"
         ></a></td>
-        <td><a href="/games/<%= game._id %>"><%= game.name %></a></td>
-        <td><%= game.avgRating %></td>
-        <td><%= game.totReviews %></td>
+        <td><a href="/games/<%#= game._id %>"><%#= game.name %></a></td>
+        <td><%#= game.avgRating %></td>
+        <td><%#= game.totReviews %></td>
       </tr>
-      <% }) %>
+      <%#}) %>
     </tbody>
-  </table>
+  </table> -->
 </main>
 
 <%- include('../partials/footer') %>
