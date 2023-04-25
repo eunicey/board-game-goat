@@ -3,29 +3,41 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <% if (game.owner.equals(user?.profile._id)) { %>
-    <a href="/games/<%= game._id %>/edit">
-      <button id="edit-btn">Edit</button>
-    </a>
-  <% } %>
-  <% if (user) { %>
-    <!-- <form action="/profiles/<%#= game._id %>/favorites" method="POST">  -->
-      <form action="/profiles/games/<%= game._id %>" method="POST"> 
-      <button type="submit" id="favorites-btn">Add to favorites</button> <br>
-    </form>
-  <% } %>
-  <img src="<%= game.imgUrl %>" alt="<%= game.name %>">
-  <h1><%= game.name %></h1>
-  <% if (game.totReviews) { %>
-    <h3><%= game.totReviews %></h3>
-    <h3><%= game.avgRating %></h3>
-  <% } %>
+  <section class="game-image">
+    <img src="<%= game.imgUrl %>" alt="<%= game.name %>">
+  </section>
+
+  <section class="game-header">
+    <h1><%= game.name %></h1>
+    <% if (user) { %>
+      <form action="/profiles/games/<%= game._id %>" method="POST">
+        <button>
+          <i class="fa-solid fa-heart-circle-plus fa-xl"></i>
+        </button>
+      </form>
+    <% } %>
+    <% if (game.owner.equals(user?.profile._id)) { %>
+      <a href="/games/<%= game._id %>/edit">
+        <button>
+          <i class="fa-solid fa-pen-to-square fa-xl"></i>
+        </button>
+      </a>
+    <% } %>
+    <% if (game.totReviews) { %>
+      <h3><%= game.totReviews %></h3>
+      <h3><%= game.avgRating %></h3>
+    <% } %>
+  </section>
+
+  <section class="left">
   <table>
     <tr>
       <td>Released <%= game.year %></td>
       <td>Categories <%= game.category %></td>
       <td>Complexity <%= game.complexity %></td>
     </tr>
+
+  </section>
     <tr>
       <td><%= game.online ? 'Available online!' : 'Not Online'%></td>
       <td>Players <%= game.minPlayers %> - <%= game.maxPlayers %></td>
