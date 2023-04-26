@@ -62,7 +62,6 @@ function show (req, res){
     res.render('games/show',{
       game,
       title: game.name,
-      ratingOptions,
     })
   })
   .catch(err => {
