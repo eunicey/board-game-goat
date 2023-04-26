@@ -1,3 +1,10 @@
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
 .card-container {
   display: flex;
   flex-direction: column;
@@ -27,15 +34,15 @@
   width: 100px;
 }
 
-/* .card-body { */
-  /* display: flex; */
+.card-body {
+  display: flex;
   /* justify-content: center; */
-  /* align-items: center; */
-/* } */
+  align-items: center;
+}
 
 .card-title {
   font-size: 18px;
-  margin: 0 10px 20px 0;
+  margin: 0 10px 0px 0;
 }
 
 a:link { 
@@ -44,23 +51,23 @@ a:link {
 
 #score-shape-number {
   position:relative;
+  /* align-items: center;
+  justify-content: center; */
 }
 
 #score-shape {
   color: green;
+  /* width: 20px; */
 }
 
 #score-number {
   color: white;
   position: absolute;
-  left: 50%; 
+  left: 75%; 
   top: 50%; 
   transform: translate(-50%, -50%);
-  font-size: 12px;
+  font-size: 14px;
 }
-
-
-
 
 
 

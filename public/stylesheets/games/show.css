@@ -1,16 +1,22 @@
-:root {
-  --bgcolor: #97ADA5;
-}
 
+/* body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} */
 main {
   display: grid;
   grid-template-areas: "image header header" "left middle right" "reviews reviews reviews";
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 2fr;
-  /* justify-content: center;
-  align-content: center; */
-  margin: 20px 40px;
-  align-items: start;
+  grid-template-rows: 1fr 0.75fr 2fr;
+
+  /* margin: 20px 40px; */
+  width: 500px; 
+  /* justify-items: center;
+  align-content: center;
+  justify-content: center; */
+  overflow: hidden;
+  margin: 0 auto;
 }
 
 section.game-image {
@@ -24,19 +30,15 @@ section.game-image > img {
 
 section.game-header {
   grid-area: header;
+  /* display: flex; */
+  place-self: center;
   /* grid-template-columns: 33% 33% 33%;
   grid-template-rows: 75% 25%; */
   /* flex-direction: column; */
 }
 
-.name-fav-edit {
-  display: flex;
-  flex-direction: row;
-  display: inline-block;
-}
-
 .name-fav-edit * {
-  display: inline-block;
+  display: inline;
 }
 
 .name-fav-edit > h1 {
@@ -45,16 +47,22 @@ section.game-header {
 }
 
 .name-fav-edit button {
-  display: inline-block;
   background-color: transparent;
   border: none;
-
 }
 
 .avgRating {
   display: flex;
+  align-items: center;
 }
 
+.avgRating > p {
+  font-style: italic;
+}
+
+/* section.left, section.right, section.middle {
+  height: 200px;
+} */
 section.left {
   grid-area: left;
   display: flex;
@@ -66,10 +74,9 @@ section.middle > div * {
   grid-area: middle;
 }
 
-section.right {
+section.right > div * {
+  display: inline-block;
   grid-area: right;
-  display: flex;
-  flex-direction: column;
 }
 
 .label {
@@ -80,10 +87,21 @@ section.right {
   font-size: 12px;
 }
 
+.label.low {
+  background-color: green;
+}
 
+.label.med {
+  background-color: orange;
+}
+
+.label.high {
+  background-color: red;
+}
 
 section.reviews {
   grid-area: reviews;
+  /* margin-top: 30px; */
 }
 
 

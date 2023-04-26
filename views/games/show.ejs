@@ -27,8 +27,11 @@
     </div>
     <div class="avgRating">
       <% if (game.totReviews) { %>
-        <h3><%= game.avgRating %></h3>
-        <h3>(<%= game.totReviews %> reviews)</h3>
+        <!-- <h3><%#= game.avgRating %></h3> -->
+        <% for(let i=0; i<game.avgRating; i++){%>
+         ⭐️ 
+        <%} %>
+        <p>(<%= game.totReviews %> reviews)</p>
       <% } %>
     </div>
   </section>
@@ -42,7 +45,7 @@
   <section class="middle">
     <div>
       <p>Category</p>
-      <span class="label category"><%= game.category %></span> 
+      <span class="label"><%= game.category %></span> 
     </div>
     
     <div>
@@ -57,19 +60,23 @@
   </section>
 
   <section class="right">
-    <p>Complexity <%= game.complexity %> / 5</p>
-  
-
-    <span class="label category"><%= game.category %></span>
-
-    <p>Strategy <%= game.strategy %> / 5</p>
-    <p>Luck <%= game.luck %> / 5</p>
+    <div>
+      <p>Complexity</p>
+      <span class="label <%= game.complexity <= 2 ? "low" : game.complexity <= 4 ? "med" : "high" %>"><%= game.complexity %> / 5</span>
+    </div>
+    <div>
+      <p>Strategy</p>
+      <span class="label <%= game.strategy <= 2 ? "low" : game.strategy <= 4 ? "med" : "high" %>"><%= game.strategy %> / 5</span>
+    </div>
+    <div>
+      <p>Luck</p>
+      <span class="label <%= game.luck <= 2 ? "low" : game.luck <= 4 ? "med" : "high" %>"><%= game.luck %> / 5</span>
+    </div>
   </section>
     
   <section class="reviews">
     <h2>Reviews</h2>
     <% if (user) { %>
-      <h3>Add a review</h3>
       <form action="/games/<%= game._id %>/reviews" method="POST">
         <label for="rating-input">Rate:</label>
         <select name="rating" id="rating-input" >

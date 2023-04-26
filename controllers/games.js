@@ -8,6 +8,10 @@ function averageRatings (reviews) {
   return reviews.length ? (reviews.reduce((acc, curr) => acc + curr.rating, 0) / reviews.length).toFixed(1) : 0
 }
 
+function label(field) {
+  field <= 2 ? "Low" : field<= 4 ? "Med" : "High"
+}
+
 function index(req, res){
   Game.find({})
   .sort('-avgRating')
