@@ -66,3 +66,10 @@ a:link {
   transform: translate(-50%, -50%);
   font-size: 14px;
 }
+
+#remove-fav-btn {
+  background-color: transparent;
+  color: white;
+  border: none;
+  margin-top: 10px;
+}
