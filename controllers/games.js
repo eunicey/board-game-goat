@@ -41,6 +41,7 @@ function newGame(req, res){
 
 function create (req, res){
   req.body.owner = req.user.profile._id
+  !req.body.imgUrl ? delete req.body.imgUrl : 0
   req.body.online = !!req.body.online
   Game.create(req.body)
   .then(game => {
@@ -93,6 +94,7 @@ function update (req, res){
   .then(game =>{
     if (game.owner.equals(req.user.profile._id)){
       req.body.online = !!req.body.online
+      !req.body.imgUrl ? delete req.body.imgUrl : 0
       game.updateOne(req.body)
       .then(() => {
         res.redirect(`/games/${game._id}`)

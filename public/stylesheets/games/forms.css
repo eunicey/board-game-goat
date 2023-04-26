@@ -31,12 +31,16 @@ input[type="checkbox"]:checked {
 }
 
 form > button {
-  grid-column: span 2;
-  /* width: 160px; */
-  padding: 4px 8px;
+  grid-column-start: 2;
   margin-left: auto;
-  /* font-size: 18px; */
   background-color: var(--color3);
+  width: 150px;
+  padding: 5px;
+}
+
+#delete-form > button{
+  margin-top: 10px;
+  background-color: rgb(190, 190, 190);
 }
 
 h1 {

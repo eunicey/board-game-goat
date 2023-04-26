@@ -20,44 +20,35 @@ const gameSchema = new Schema({
     type: String,
     required: true,
   },
-  imgUrl: String,
-  category: {
+  imgUrl: {
     type: String,
-    // enum: ['Co-Op', 'Engine Builder', 'Deck Builder', 'Worker Placement', 'Social Deduction', 'RPG'],
-    default: 'Co-Op',
+    default: "https://cdn-icons-png.flaticon.com/512/13/13598.png",
   },
-  duration: {
-    type: String,
-    // enum: ['< 30 min', '1 - 1.5 hrs', '2+ hrs'],
-    default: '1 - 1.5 hrs',
-  },
+  category: String,
+  duration: String,
+
   minPlayers: {
     type: Number,
     min: 1,
-    default: 1,
   },
   maxPlayers: {
     type: Number,
     min: 1,
-    default: 4,
   },
   complexity: {
     type: Number,
     min: 1,
     max: 5,
-    default: 3,
   },
   strategy: {
     type: Number,
     min: 1,
     max: 5,
-    default: 3,
   },
   luck: {
     type: Number,
     min: 1,
     max: 5,
-    default: 3,
   },
   year: {
     type: Number,
