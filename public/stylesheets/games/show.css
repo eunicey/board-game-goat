@@ -8,7 +8,7 @@ main {
   display: grid;
   grid-template-areas: "image header header" "left middle right" "reviews reviews reviews";
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 0.75fr 2fr;
+  grid-template-rows: 1fr 1fr 2fr;
 
   /* margin: 20px 40px; */
   width: 500px; 
@@ -106,40 +106,40 @@ section.reviews {
 
 .star-container {
   display: inline;
-   flex-direction: row-reverse;
-   align-items: flex-start;
-   justify-content: flex-end;
- }
- 
-.star {
-   /* -webkit-appearance: none !important;
-   -moz-appearance: none !important;
-   -o-appearance: none !important;
-   -ms-appearance: none !important; */
-   appearance: none;
-   width: 24px;
-   height: 24px;
-   background-image: url('https://www.worthschools.net/userfiles/197/my%20files/4-stars.jpg?id=29736');
-   background-size: cover;
-   background-repeat: no-repeat;
-   background-position: right 0;
-   cursor: pointer;
- }
- 
- .star:checked, .star:checked~input[class="star"] {
-   background-position: left 0;
- }
+  flex-direction: row-reverse;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
 
- .section.reviews {
+.star {
+  /* -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  -o-appearance: none !important;
+  -ms-appearance: none !important; */
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  background-image: url('https://www.worthschools.net/userfiles/197/my%20files/4-stars.jpg?id=29736');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: right 0;
+  cursor: pointer;
+}
+
+.star:checked, .star:checked~input[class="star"] {
+  background-position: left 0;
+}
+
+.section.reviews {
   display: flex;
   flex-direction: column;
- }
+}
 
- section.rating {
+div.show-rating {
   margin-bottom: 10px;
- }
+}
 
- #review-input {
+#review-text-input {
   width: 100%;
   height: 75px;
   padding: 10px;
@@ -150,7 +150,27 @@ section.reviews {
   font-family: var(--font);
 }
 
-#review-btn {
+#review-form {
+  margin-bottom: 20px;
+}
+#post-review-btn {
   float: right;
   border-radius: 5px;
+}
+
+.all-but-review * {
+  text-decoration: none; 
+  display: inline;
+}
+
+.all-but-review > p, .all-but-review > a, .all-but-review > form {
+  float: right;
+}
+
+.all-but-review > a {
+  float: right;
+}
+
+.all-but-review > form {
+  float: right;
 }

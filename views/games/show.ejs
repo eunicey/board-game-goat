@@ -29,7 +29,7 @@
       <% if (game.totReviews) { %>
         <!-- <h3><%#= game.avgRating %></h3> -->
         <% for(let i=0; i<game.avgRating; i++){%>
-         ⭐️ 
+          ⭐️ 
         <%} %>
         <p>(<%= game.totReviews %> reviews)</p>
       <% } %>
@@ -75,10 +75,10 @@
   </section>
     
   <section class="reviews">
-    <h2>Reviews</h2>
+    <h3>Reviews</h3>
     <% if (user) { %>
-      <form action="/games/<%= game._id %>/reviews" method="POST">
-        <section class="rating">
+      <form action="/games/<%= game._id %>/reviews" method="POST" id="review-form">
+        <div class="show-rating">
           <label for="rating-input">Rate:</label>
           <!-- <select name="rating" id="rating-input" >
             <%# ratingOptions.forEach(score => { %>
@@ -93,26 +93,39 @@
             <input type="radio" name="rating" class="star" value="2">
             <input type="radio" name="rating" class="star" value="1">
           </div>
-        </section>
+        </div>
 
-        <textarea type="text" name="content" id="review-input" autocomplete="off"></textarea><br>
+        <textarea type="text" name="content" id="review-text-input" autocomplete="off"></textarea>
 
-        <button id="review-btn">Post Review</button>
+        <button id="post-review-btn">Post Review</button>
       </form>
     <% } %>
-    <ul>
-      <% game.reviews?.forEach(review => { %>
-        <li> <%= review.rating %> - <%= review.content %> - <%= review.author.name %> </li> 
-        <% if (review.author.equals(user?.profile._id)) { %>
-          <a href="/games/<%= game._id %>/reviews/<%= review._id %>/edit">
-            <button class="btn">Edit Comment</button>
-          </a>
-          <form action="/games/<%= game._id %>/reviews/<%= review._id %>?_method=DELETE" method="POST">
-            <button type="submit" id="delete-btn">Delete Comment</button>
-          </form>
-        <% } %> 
-      <% }) %>
-    </ul>
+
+    <% game.reviews?.forEach(review => { %>
+      <div class="review-container">
+        <div class="all-but-review">
+          <% for(let i=0; i<review.rating; i++){%>
+            ⭐️ 
+          <%}%>
+          <p><%= review.author.name %> </p>
+
+          <% if (review.author.equals(user?.profile._id)) { %>
+            <a href="/games/<%= game._id %>/reviews/<%= review._id %>/edit">
+              <button>
+                <i class="fa-solid fa-pen-to-square"></i>
+              </button>
+            </a>
+            <form action="/games/<%= game._id %>/reviews/<%= review._id %>?_method=DELETE" method="POST">
+              <button>
+                <i class="fa-regular fa-trash-can"></i>
+              </button>
+            </form>
+          <% } %> 
+        </div>
+        <p><%= review.content %> </p>
+      </div>
+    <% }) %>
+
   </section>
 
 
