@@ -1,13 +1,16 @@
 :root {
   --font: 'Open Sans', 'Helvetica Neue', 'Segoe UI', sans-serif;
-  --bg-color: #97ADA5;
+  --color1: #32373B;
+  --color2: #4A5859;
+  --color3: #F4D6CC;
+  --textarea-color: #e5e5e5;
+  --border-color: #828282;
 }
-
-
 
 html {
   box-sizing: border-box;
   font-family: 'Open Sans', 'Helvetica Neue', 'Segoe UI', sans-serif;
+  color: white;
 }
 
 /* The Universal Selector */
@@ -20,8 +23,8 @@ html {
 }
 
 body {
-  background-color: var(--bg-color);
-  color: black;
+  background-color: var(--color1);
+  /* color: black; */
   margin: 0;
 }
 
@@ -33,8 +36,8 @@ body {
 } */
 
 nav {
-  background-color: #909794;
-  color: black;
+  background-color: var(--color3);
+  /* color: black; */
   display: flex;
   align-items: center;
   padding: 0px 20px 0px 20px;
@@ -50,7 +53,7 @@ nav > div > a:link {
   margin-right: 20px;
 }
 
-.fa-solid {
+nav .fa-solid {
   color: black;
 }
 

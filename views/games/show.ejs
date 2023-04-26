@@ -78,7 +78,7 @@
     <h3>Reviews</h3>
     <% if (user) { %>
       <form action="/games/<%= game._id %>/reviews" method="POST" id="review-form">
-        <div class="show-rating">
+        <!-- <div class="rating-input"> -->
           <label for="rating-input">Rate:</label>
           <!-- <select name="rating" id="rating-input" >
             <%# ratingOptions.forEach(score => { %>
@@ -86,14 +86,14 @@
             <%# }) %>
           </select><br> -->
           
-          <div class="star-container">
+          <div class="star-container" id="rating-input">
             <input type="radio" name="rating" class="star" value="5">
             <input type="radio" name="rating" class="star" value="4">
             <input type="radio" name="rating" class="star" value="3">
             <input type="radio" name="rating" class="star" value="2">
             <input type="radio" name="rating" class="star" value="1">
           </div>
-        </div>
+        <!-- </div> -->
 
         <textarea type="text" name="content" id="review-text-input" autocomplete="off"></textarea>
 
@@ -107,20 +107,21 @@
           <% for(let i=0; i<review.rating; i++){%>
             ⭐️ 
           <%}%>
-          <p><%= review.author.name %> </p>
-
-          <% if (review.author.equals(user?.profile._id)) { %>
-            <a href="/games/<%= game._id %>/reviews/<%= review._id %>/edit">
-              <button>
-                <i class="fa-solid fa-pen-to-square"></i>
-              </button>
-            </a>
-            <form action="/games/<%= game._id %>/reviews/<%= review._id %>?_method=DELETE" method="POST">
-              <button>
-                <i class="fa-regular fa-trash-can"></i>
-              </button>
-            </form>
-          <% } %> 
+          <div class="author-btns">
+            <p><%= review.author.name %> </p>
+            <% if (review.author.equals(user?.profile._id)) { %>
+              <a href="/games/<%= game._id %>/reviews/<%= review._id %>/edit">
+                <button>
+                  <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+              </a>
+              <form action="/games/<%= game._id %>/reviews/<%= review._id %>?_method=DELETE" method="POST">
+                <button>
+                  <i class="fa-regular fa-trash-can"></i>
+                </button>
+              </form>
+            <% } %> 
+          </div>
         </div>
         <p><%= review.content %> </p>
       </div>

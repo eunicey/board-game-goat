@@ -11,7 +11,7 @@ main {
   grid-template-rows: 1fr 1fr 2fr;
 
   /* margin: 20px 40px; */
-  width: 500px; 
+  width: 600px; 
   /* justify-items: center;
   align-content: center;
   justify-content: center; */
@@ -48,7 +48,12 @@ section.game-header {
 
 .name-fav-edit button {
   background-color: transparent;
+  color: var(--color3);
   border: none;
+}
+
+.name-fav-edit form button {
+  color: rgb(194, 194, 194);
 }
 
 .avgRating {
@@ -58,11 +63,17 @@ section.game-header {
 
 .avgRating > p {
   font-style: italic;
+  margin-left: 10px;
 }
 
-/* section.left, section.right, section.middle {
-  height: 200px;
-} */
+section.left > p, section.right > div, section.middle > div {
+  height: 45px;
+}
+
+section.left > p, section.right > div p, section.middle > div p {
+  margin: 0;
+} 
+
 section.left {
   grid-area: left;
   display: flex;
@@ -135,42 +146,57 @@ section.reviews {
   flex-direction: column;
 }
 
-div.show-rating {
-  margin-bottom: 10px;
+#review-form {
+  margin-bottom: 60px;
 }
 
 #review-text-input {
   width: 100%;
   height: 75px;
   padding: 10px;
-  border: 2px solid #ccc;
+  border: 2px solid var(--border-color);
   border-radius: 5px;
-  background-color: #f8f8f8;
+  background-color: var(--textarea-color);
   font-size: 12px;
   font-family: var(--font);
+  margin-top: 10px;
 }
 
-#review-form {
-  margin-bottom: 20px;
-}
 #post-review-btn {
   float: right;
   border-radius: 5px;
+  padding: 4px 6px;
+  background-color: var(--color3)
 }
 
-.all-but-review * {
-  text-decoration: none; 
+.review-container {
+  border: 2px solid var(--border-color);
+  border-radius: 5px;
+  padding: 15px;
+  background-color: var(--color2);
+  margin: 15px 0;
+  font-size: 12px;
+  height: 75px;
+}
+
+.review-container> .all-but-review * {
   display: inline;
 }
 
-.all-but-review > p, .all-but-review > a, .all-but-review > form {
+.all-but-review >.author-btns {
   float: right;
 }
 
-.all-but-review > a {
-  float: right;
+.all-but-review button {
+  background-color: transparent;
+  color: var(--color3);
+  border: none;
+}
+.all-but-review > .author-btns > p {
+  font-style: italic;
+  margin-right: 20px;
 }
 
-.all-but-review > form {
-  float: right;
+a:link { 
+  text-decoration: none; 
 }
