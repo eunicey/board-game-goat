@@ -4,28 +4,29 @@
 
 <main>
   <h1><%= title %></h1>
+  
   <div class="card-container">
     <% games.forEach((game) => { %>
       <a href="/games/<%= game._id %>">
         <div class="card">
-          <div class="card-body">
+          <div class="card-text">
             <h1 class="card-title"><%= game.name %></h1>
             <span class="fa-layers fa-fw" id="score-shape-number">
               <i class="fa-solid fa-shield fa-2xl" id="score-shape"></i>
               <span class="fa-layers-text fa-inverse" data-fa-transform="up-10 right-4" id="score-number">
-                <%= game.avgRating ? game.avgRating : "NR" %>
+                  <%= game.avgRating ? game.avgRating : "NR" %>
               </span>
             </span>
           </div>
-
           <img 
-            src="<%= game.imgUrl %>"
-            alt="<%= game.name %>"
+          src="<%= game.imgUrl %>"
+          alt="<%= game.name %>"
           >
         </div>
       </a>
     <% }) %>
   </div>
+
 </main>
 
 <%- include('../partials/footer') %>
