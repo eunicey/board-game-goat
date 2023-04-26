@@ -152,13 +152,11 @@ function editReview (req, res){
   Game.findById(req.params.gameId)
   .then(game => {
     const review = game.reviews.id(req.params.reviewId)
-    const otherRatings = ratingOptions.filter(score => score !== review.rating)
     if (review.author.equals(req.user.profile._id)){
       res.render('games/editComment',{
         game,
         review,
-        title: 'Update Review',
-        otherRatings,
+        title: 'Edit Review',
       })
     } else {
       throw new Error('🚫 YOU ARE NOT AUTHORIZED TO EDIT THIS COMMENT 🚫')

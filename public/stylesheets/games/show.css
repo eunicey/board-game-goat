@@ -8,20 +8,20 @@ main {
   display: grid;
   grid-template-areas: "image header header" "left middle right" "reviews reviews reviews";
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 250px 200px auto;
+  grid-template-rows: 250px 250px auto;
 
   /* margin: 20px 40px; */
-  width: 600px; 
+  width: 800px; 
   /* justify-items: center;
   align-content: center;
   justify-content: center; */
-  overflow: hidden;
   margin: 50px auto;
+  font-size: 20px;
 }
 
 section.game-image {
   grid-area: image;
-  place-self: center stretch;
+  place-self: center;
 }
 
 section.game-image > img {
@@ -70,13 +70,10 @@ section.game-header {
   margin-left: 10px;
 }
 
-section.left > p, section.right > div, section.middle > div {
-  height: 45px;
+section.left > div, section.right > div, section.middle > div {
+  height: 50px;
+  margin-left: 40px;
 }
-
-section.left > p, section.right > div p, section.middle > div p {
-  margin: 0;
-} 
 
 section.left {
   grid-area: left;
@@ -99,11 +96,13 @@ section.right > div * {
   padding: 4px 8px;
   background-color: black;
   border-radius: 25px;
-  font-size: 12px;
+  font-size: 16px;
+  margin-left: 10px;
 }
 
 .label.low {
   background-color: green;
+
 }
 
 .label.med {
@@ -117,6 +116,7 @@ section.right > div * {
 section.reviews {
   grid-area: reviews;
   /* margin-top: 30px; */
+  margin-left: 40px;
 }
 
 .star-container {
@@ -158,11 +158,11 @@ section.reviews {
 #review-text-input {
   width: 100%;
   height: 75px;
-  padding: 10px;
+  padding: 15px;
   border: 2px solid var(--border-color);
   border-radius: 5px;
   background-color: var(--textarea-color);
-  font-size: 12px;
+  font-size: 16px;
   font-family: var(--font);
   margin-top: 10px;
 }
@@ -170,8 +170,9 @@ section.reviews {
 #post-review-btn {
   float: right;
   border-radius: 5px;
-  padding: 4px 6px;
+  padding: 5px;
   background-color: var(--color3);
+  font-size: 20px;
 }
 
 .review-container {
@@ -180,8 +181,7 @@ section.reviews {
   padding: 15px;
   background-color: var(--color2);
   margin: 15px 0;
-  font-size: 12px;
-  height: 75px;
+  font-size: 16px;
 }
 
 .review-container> .all-but-review * {

@@ -2,20 +2,26 @@
 <link rel="stylesheet" href="/stylesheets/games/forms.css" />
 <%- include('../partials/nav') %>
 
-<section>
+<main>
   <h1><%= title %></h1>
-  <form action="/games/<%= game._id %>/reviews/<%= review._id %>?_method=PUT" method="POST">
-    <label for="rating-input">Rate:</label>
-    <select name="rating" id="rating-input" >
-      <option value="<%= review.rating %>"><%= review.rating %></option>
-      <% otherRatings.forEach(score => { %>
-        <option value="<%= score %>"><%= score %></option>
-      <% }) %>
-    </select><br>
+  <form action="/games/<%= game._id %>/reviews/<%= review._id %>?_method=PUT" method="POST" id="edit-review-form">
+    <div class="edit-rating">
+      <label for="rating-input">Rate:</label>
+      <div class="star-container" id="rating-input">
+        <% for (let i=1; i<6; i++) { %>
+          <input type="radio" name="rating" value= <%= i %>
+            <% if(i===review.rating) { %>
+              checked 
+            <% } %>
+          >
+        <% } %>
+      </div>
+    </div>
 
-    <textarea type="text" name="content" id="review-input" autocomplete="off"><%= review.content %></textarea>
-    <button type="submit" id="review-btn">Update Review</button>
+    <textarea type="text" name="content" id="review-text-input" autocomplete="off"><%= review.content %></textarea>
+    <button type="submit" id="post-review-btn">Save Changes</button>
   </form>
-</section>
+
+</main>
 
 <%- include('../partials/footer') %>
