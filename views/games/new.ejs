@@ -5,7 +5,7 @@
 <main>
   <h1><%= title %></h1>
   <form id="new-form" action="/games" method="POST">
-    <label for="name-input">Name of Board Game:</label>
+    <label for="name-input">Name of board game:</label>
     <input type="text" name="name" autocomplete="off" id="name-input">
     <label for="imgUrl-input">Image url:</label>
     <input type="text" name="imgUrl" autocomplete="off" id="imgUrl-input">
@@ -25,11 +25,22 @@
     </select>
 
     <label for="minPlayers-input">Minimum Players:</label>
-    <input type="number" name="minPlayers" id="minPlayers-input" value="1">
+    <input type="number" name="minPlayers" id="minPlayers-input" min="1" value="1">
     <label for="maxPlayers-input">Maximum Players:</label>
-    <input type="number" name="maxPlayers" id="maxPlayers-input" value="1">
+    <input type="number" name="maxPlayers" id="maxPlayers-input" min="1" value="1">
 
     <label for="comlexity-input">Complexity:</label>
+
+    <div class="radio-container" id="complexity-input">
+      <p>Low</p>
+      <input type="radio" name="complexity" value=1>
+      <input type="radio" name="complexity" value=2>
+      <input type="radio" name="complexity" value=3 checked>
+      <input type="radio" name="complexity" value=4>
+      <input type="radio" name="complexity" value=5>
+      <p>High</p>
+    </div>
+
     <input type="number" name="complexity" id="complexity-input" value="3">
     <label for="strategy-input">Strategy:</label>
     <input type="number" name="strategy" id="strategy-input" value="3">
@@ -40,7 +51,7 @@
     <input type="checkbox" name="online" id="online-input">
 
     <label for="year-input">Release Year:</label>
-    <input type="number" name="year" id="year-input" value="<%= thisYear %>">
+    <input type="number" name="year" id="year-input" max= 2023 value="<%= thisYear %>">
     <button type="submit">Save Game</button>
 
   </form>

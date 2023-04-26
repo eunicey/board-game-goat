@@ -1,21 +1,47 @@
 form {
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: repeat(2, minmax(auto, 352px));
-  font-size: 20px;
+  grid-template-columns: repeat(2, minmax(auto, 350px));
+  width: 600px;
+  margin: 0 auto;
 }
 
 form * {
-  padding: 5px;
+  padding: 5px 10px;
   border-radius: 5px;
   font-size: 20px;
 }
 
+input[type="number"] {
+  width: 100px;
+}
+
+input[type="checkbox"] {
+  justify-self: start;
+  width: 30px;
+}
+
+input[type="checkbox"]:checked {
+  accent-color: white;
+}
+
+.radio-container * {
+  display: inline;
+  padding-left: 0;
+}
+
 form > button {
   grid-column: span 2;
-  width: 160px;
+  /* width: 160px; */
+  padding: 4px 8px;
   margin-left: auto;
-  font-size: 22px;
+  /* font-size: 18px; */
+  background-color: var(--color3);
+}
+
+h1 {
+  text-align: center;
+  margin: 50px auto;
 }
 
 #review-input {

@@ -10,20 +10,22 @@
   <section class="game-header">
     <div class="name-fav-edit">
       <h1><%= game.name %></h1>
-      <% if (user) { %>
-        <form action="/profiles/games/<%= game._id %>" method="POST">
-          <button>
-            <i class="fa-solid fa-heart-circle-plus fa-xl"></i>
-          </button>
-        </form>
-      <% } %>
-      <% if (game.owner.equals(user?.profile._id)) { %>
-        <a href="/games/<%= game._id %>/edit">
-          <button>
-            <i class="fa-solid fa-pen-to-square fa-xl"></i>
-          </button>
-        </a>
-      <% } %>
+        <div class="fav-edit-btns">
+        <% if (user) { %>
+          <form action="/profiles/games/<%= game._id %>" method="POST">
+            <button>
+              <i class="fa-solid fa-heart-circle-plus fa-xl"></i>
+            </button>
+          </form>
+        <% } %>
+        <% if (game.owner.equals(user?.profile._id)) { %>
+          <a href="/games/<%= game._id %>/edit">
+            <button>
+              <i class="fa-solid fa-pen-to-square fa-xl"></i>
+            </button>
+          </a>
+        <% } %>
+      </div>
     </div>
     <div class="avgRating">
       <% if (game.totReviews) { %>
@@ -87,11 +89,11 @@
           </select><br> -->
           
           <div class="star-container" id="rating-input">
-            <input type="radio" name="rating" class="star" value="5">
-            <input type="radio" name="rating" class="star" value="4">
-            <input type="radio" name="rating" class="star" value="3">
-            <input type="radio" name="rating" class="star" value="2">
-            <input type="radio" name="rating" class="star" value="1">
+            <input type="radio" name="rating" class="star" value=5>
+            <input type="radio" name="rating" class="star" value=4>
+            <input type="radio" name="rating" class="star" value=3>
+            <input type="radio" name="rating" class="star" value=2>
+            <input type="radio" name="rating" class="star" value=1>
           </div>
         <!-- </div> -->
 

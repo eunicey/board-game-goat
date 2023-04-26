@@ -9,7 +9,7 @@ const reviewSchema = new Schema({
     required: true,
     min: 1,
     max: 5, 
-    default: 3,
+    default: 1,
   },
   author: { type: Schema.Types.ObjectId, ref: 'Profile' },
   game: { type: Schema.Types.ObjectId, ref: 'Game' },

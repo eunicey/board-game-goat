@@ -8,7 +8,7 @@ main {
   display: grid;
   grid-template-areas: "image header header" "left middle right" "reviews reviews reviews";
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 2fr;
+  grid-template-rows: 250px 200px auto;
 
   /* margin: 20px 40px; */
   width: 600px; 
@@ -16,7 +16,7 @@ main {
   align-content: center;
   justify-content: center; */
   overflow: hidden;
-  margin: 0 auto;
+  margin: 50px auto;
 }
 
 section.game-image {
@@ -39,6 +39,10 @@ section.game-header {
 
 .name-fav-edit * {
   display: inline;
+}
+
+.fav-edit-btns {
+  display: inline-block;
 }
 
 .name-fav-edit > h1 {
@@ -116,7 +120,7 @@ section.reviews {
 }
 
 .star-container {
-  display: inline;
+  display: inline-flex;
   flex-direction: row-reverse;
   align-items: flex-start;
   justify-content: flex-end;
@@ -135,6 +139,7 @@ section.reviews {
   background-repeat: no-repeat;
   background-position: right 0;
   cursor: pointer;
+  /* outline: 0; */
 }
 
 .star:checked, .star:checked~input[class="star"] {
@@ -166,7 +171,7 @@ section.reviews {
   float: right;
   border-radius: 5px;
   padding: 4px 6px;
-  background-color: var(--color3)
+  background-color: var(--color3);
 }
 
 .review-container {
