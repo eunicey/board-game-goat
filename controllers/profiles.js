@@ -64,10 +64,10 @@ function removeFromFavorites (req, res){
   Profile.findById(req.params.profileId)
   .populate('favorites')
   .then(profile => {
-    profile.favorites.remove({_id: req.params.gameId})
+    profile.favorites.remove({_id: req.params.favoriteId})
     profile.save()
     .then(() => {
-      res.redirect(`/profiles/${profile._id}`)
+      res.redirect(`/profiles/${profile._id}/favorites`)
     })
     .catch(err => {
       console.log(err)

@@ -13,8 +13,8 @@ router.get('/:profileId/favorites', isLoggedIn, profilesCtrl.showFavorites)
 //POST localhost:3000/profiles/favorites/:favoriteId
 router.post('/:profileId/favorites/:favoriteId', isLoggedIn, profilesCtrl.addToFavorites)
 
-//DELETE localhost:3000/profiles/:profileId/games/:gameId
-router.delete('/:profileId/games/:gameId', isLoggedIn, profilesCtrl.removeFromFavorites)
+//DELETE localhost:3000/profiles/:profileId/favorites/:favoriteId
+router.delete('/:profileId/favorites/:favoriteId', isLoggedIn, profilesCtrl.removeFromFavorites)
 
 export {
   router
