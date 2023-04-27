@@ -22,7 +22,7 @@ const gameSchema = new Schema({
   },
   imgUrl: {
     type: String,
-    default: "https://cdn-icons-png.flaticon.com/512/13/13598.png",
+    default: "https://openseauserdata.com/files/bb15c0a9f522ea55b10a8a9675f285c4.gif",
   },
   
   description: String,

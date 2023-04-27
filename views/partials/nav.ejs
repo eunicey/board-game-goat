@@ -6,19 +6,19 @@
 <body>
   <nav>
     <a href="/games" >
-      <img src="../../images/home1.png" alt="home" id="home-icon">
+      <img src="../../images/goat.png" alt="home" id="home-icon">
     </a>
 
     <div>
       <% if (user) { %>
         <a href="/games/new">
-          <i class="fa-solid fa-square-plus fa-lg"></i>
+          <i class="fa-solid fa-square-plus fa-xl"></i>
         </a>
         <a href="/profiles">
-          <i class="fa-solid fa-circle-user fa-lg"></i>
+          <i class="fa-brands fa-gratipay fa-xl"></i>
         </a>
         <a href="/auth/logout">
-          <i class="fa-solid fa-right-from-bracket fa-lg"></i>
+          <i class="fa-solid fa-right-from-bracket fa-xl"></i>
         </a>
       <% } else { %>
         <div 
@@ -31,7 +31,7 @@
         <div 
           class="g_id_signin right"
           data-type="standard"
-          data-size="small"
+          data-size="large"
           data-theme="filled_black"
           data-text="sign_in_with"
           data-shape="rectangular"

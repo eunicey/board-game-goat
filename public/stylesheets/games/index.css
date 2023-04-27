@@ -18,19 +18,27 @@ h1 {
   /* max-width: 1600px; */
 }
 
+.card-container>a:link {
+  background-color: #43494f;
+  border-radius: 10px;
+}
+
 .card {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 300px;
-  padding: 10px;
+  padding: 20px 10px;
+
 }
 
 .card > img {
   border-radius: 10px;
-  width: 150px;
-  border: solid var(--border-color);
+  /* width: 150px; */
+  height: 150px;
+  border: 2px solid var(--color1);
+  max-width: 250px;
 }
 
 .card-text {
