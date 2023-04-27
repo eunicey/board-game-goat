@@ -6,24 +6,24 @@
   <h1><%= title %></h1>
 
   <div class="card-container">
-    <% games.forEach(game => { %>
-      <a href="/games/<%= game._id %>">
+    <% favGames.forEach(favGame => { %>
+      <a href="/games/<%= favGame._id %>">
         <div class="card">
           <div class="card-text">
-            <h1 class="card-title"><%= game.name %></h1>
+            <h1 class="card-title"><%= favGame.name %></h1>
             <span class="fa-layers fa-fw" id="score-shape-number">
               <i class="fa-solid fa-shield fa-2xl" id="score-shape"></i>
               <span class="fa-layers-text fa-inverse" data-fa-transform="up-10 right-4" id="score-number">
-                  <%= game.avgRating ? game.avgRating : "NR" %>
+                  <%= favGame.avgRating ? favGame.avgRating : "NR" %>
               </span>
             </span>
           </div>
           <img 
-            src="<%= game.imgUrl %>" 
-            alt="<%= game.name %>"
+            src="<%= favGame.imgUrl %>" 
+            alt="<%= favGame.name %>"
           >
           <% if (isSelf) {%> 
-            <form id="remove-fav-form" action="/profiles/<%= profile._id %>/games/<%= game._id %>?_method=DELETE" method="POST">
+            <form id="remove-fav-form" action="/profiles/<%= profile._id %>/favorites/<%= favGame._id %>?_method=DELETE" method="POST">
               <button type="submit" id="remove-fav-btn">
                 <i class="fa-solid fa-heart-circle-minus fa-xl"></i>
               </button>

@@ -2,28 +2,28 @@ import { Profile } from '../models/profile.js'
 import { Game } from '../models/game.js'
 
 
-// A STRETCH GOAL IS TO RENDER A PROFILES INDEX PAGE. FOR NOW IT WILL REDIRECT TO USER'S PROFILE
-function index(req, res) {
-  Profile.findById(req.user.profile._id)
-  .then((profile) => {
-    res.redirect(`/profiles/${profile._id}`)
-  })
-  .catch(err => {
-    console.log(err)
-    res.redirect('/')
-  })
-}
+// A STRETCH GOAL IS TO RENDER A PROFILES INDEX PAGE. THIS IS PLACEHOLDER CODE
+// function index(req, res) {
+//   Profile.findById(req.user.profile._id)
+//   .then((profile) => {
+//     res.redirect(`/profiles/${profile._id}`)
+//   })
+//   .catch(err => {
+//     console.log(err)
+//     res.redirect('/')
+//   })
+// }
 
-function show (req, res){
+function showFavorites (req, res){
   Profile.findById(req.params.profileId)
   .populate('favorites')
   .then(profile => {
     const isSelf = profile._id.equals(req.user.profile._id)
-    const games = profile.favorites
-    res.render('profiles/show', {
+    const favGames = profile.favorites
+    res.render('profiles/showFavorites', {
       title: `${profile.name}'s Favorites`,
       profile,
-      games,
+      favGames,
       isSelf,
     })
   })
@@ -82,8 +82,8 @@ function removeFromFavorites (req, res){
 
 
 export {
-  index,
-  show,
+  // index,
+  showFavorites,
   addToFavorites,
   removeFromFavorites,
 }

@@ -4,11 +4,11 @@ import * as profilesCtrl from '../controllers/profiles.js'
 
 const router = Router()
 
-// GET localhost:3000/profiles
-router.get('/', isLoggedIn, profilesCtrl.index)
+// // GET localhost:3000/profiles
+// router.get('/', isLoggedIn, profilesCtrl.index)
 
 //GET localhost:3000/profiles
-router.get('/:profileId', isLoggedIn, profilesCtrl.show)
+router.get('/:profileId/favorites', isLoggedIn, profilesCtrl.showFavorites)
 
 //POST localhost:3000/profiles/games/:gameId
 router.post('/:profileId/games/:gameId', isLoggedIn, profilesCtrl.addToFavorites)
