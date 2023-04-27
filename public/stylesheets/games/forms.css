@@ -7,7 +7,7 @@ form {
 }
 
 form * {
-  padding: 5px 10px;
+  /* padding: 5px 10px; */
   border-radius: 5px;
   font-size: 20px;
 }
@@ -55,10 +55,8 @@ h1 {
 
 .edit-rating {
   display: flex;
-  flex-direction: row;
-  padding-left: 0;
-  font-size: 20px;
   margin-bottom: 10px;
+  align-items: center;
 }
 
 textarea {
@@ -104,7 +102,7 @@ textarea {
 }
 
 .star-cb-group {
-  display: inline-flex;
+  margin-left: 10px;
   font-size: 0;
   unicode-bidi: bidi-override;
   direction: rtl;

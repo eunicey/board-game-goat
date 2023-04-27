@@ -8,30 +8,16 @@
     <div class="edit-rating">
 
       <label for="rating-input">Rate:</label>
-      <div class="star-cb-group">
-
-        <input type="radio" id="rating-5" name="rating" value="5" />
-        <label for="rating-5">5</label>
-        <input type="radio" id="rating-4" name="rating" value="4"  />
-        <label for="rating-4">4</label>
-        <input type="radio" id="rating-3" name="rating" value="3" />
-        <label for="rating-3">3</label>
-        <input type="radio" id="rating-2" name="rating" value="2" />
-        <label for="rating-2">2</label>
-        <input type="radio" id="rating-1" name="rating" value="1" checked="checked"/>
-        <label for="rating-1">1</label>
-        <input type="radio" id="rating-0" name="rating" value="0" class="star-cb-clear" />
-        <label for="rating-0">0</label>
-      </div>
-
-      <div class="star-container" id="rating-input>
-
-        <% for (let i=1; i<6; i++) { %>
-          <input type="radio" name="rating" value= <%= i %>
+      <div class="star-cb-group" id="rating-input">
+        <% for (let i=5; i>=0; i--) { %>
+          <input type="radio" id="rating-<%= i %>" name="rating" value="<%= i %>"
             <% if(i===review.rating) { %>
-              checked 
+              checked="checked" 
+            <% } else if (i===0){ %>
+              class="star-cb-clear"
             <% } %>
-          >
+          />
+          <label for="rating-<%= i %>"><%= i %></label>
         <% } %>
       </div>
     </div>
