@@ -7,7 +7,7 @@ form {
 }
 
 form * {
-  /* padding: 5px 10px; */
+  padding: 5px 10px;
   border-radius: 5px;
   font-size: 20px;
 }
@@ -84,6 +84,7 @@ textarea {
   direction: rtl;
   text-align: center;
 }
+
 .rating > span:hover:before,
 .rating > span:hover ~ span:before {
   content: "\2605";

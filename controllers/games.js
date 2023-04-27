@@ -1,16 +1,13 @@
 import { Game } from "../models/game.js"
 import { Profile } from '../models/profile.js'
 
+// pass in field options for show and edit views 
 const categoryOptions = ['Co-Op', 'Engine Builder', 'Deck Builder', 'Worker Placement', 'Social Deduction', 'RPG']
 const durationOptions = ['< 30 min', '1 - 1.5 hrs', '2+ hrs']
-const ratingOptions = [1, 2, 3, 4, 5]
 
+// average ratings for game after a user has added or updated their rating
 function averageRatings (reviews) {
   return reviews.length ? (reviews.reduce((acc, curr) => acc + curr.rating, 0) / reviews.length).toFixed(1) : 0
-}
-
-function label(field) {
-  field <= 2 ? "Low" : field<= 4 ? "Med" : "High"
 }
 
 function index(req, res){
@@ -75,6 +72,7 @@ function show (req, res){
           game,
           title: game.name,
           isUserFav,
+          profile,
         })
       })
       .catch(err => {

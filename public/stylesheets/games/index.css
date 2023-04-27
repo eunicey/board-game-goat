@@ -43,15 +43,18 @@ h1 {
 
 .card-text {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
   align-items: center;
   color: white;
   margin-bottom: 20px;
+  width: 90%;
+  justify-content: center;
 }
 
 .card-title {
   font-size: 20px;
   margin:0 15px 0 0;
+  max-width: 70%;
 }
 
 a:link { 

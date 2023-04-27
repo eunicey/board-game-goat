@@ -1,22 +1,21 @@
 import { Profile } from '../models/profile.js'
 import { Game } from '../models/game.js'
 
-// function index(req, res) {
-//   Profile.find({})
-//   .then(profiles => {
-//     res.render('profiles/index', {
-//       profiles,
-// 			title: "🐐"
-//     })
-//   })
-//   .catch(err => {
-//     console.log(err)
-//     res.redirect('/')
-//   })
-// }
+
+// A STRETCH GOAL IS TO RENDER A PROFILES INDEX PAGE. FOR NOW IT WILL REDIRECT TO USER'S PROFILE
+function index(req, res) {
+  Profile.findById(req.user.profile._id)
+  .then((profile) => {
+    res.redirect(`/profiles/${profile._id}`)
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
+}
 
 function show (req, res){
-  Profile.findById(req.user.profile._id)
+  Profile.findById(req.params.profileId)
   .populate('favorites')
   .then(profile => {
     const isSelf = profile._id.equals(req.user.profile._id)
@@ -37,7 +36,7 @@ function show (req, res){
 function addToFavorites (req, res){
   Game.findById(req.params.gameId)
   .then(game => {
-    Profile.findById(req.user.profile._id)
+    Profile.findById(req.params.profileId)
     .populate('favorites')
     .then(profile => {
       profile.favorites.push(game._id)
@@ -62,13 +61,13 @@ function addToFavorites (req, res){
 }
 
 function removeFromFavorites (req, res){
-  Profile.findById(req.user.profile._id)
+  Profile.findById(req.params.profileId)
   .populate('favorites')
   .then(profile => {
     profile.favorites.remove({_id: req.params.gameId})
     profile.save()
     .then(() => {
-      res.redirect('/profiles')
+      res.redirect(`/profiles/${profile._id}`)
     })
     .catch(err => {
       console.log(err)
@@ -83,7 +82,7 @@ function removeFromFavorites (req, res){
 
 
 export {
-  // index,
+  index,
   show,
   addToFavorites,
   removeFromFavorites,

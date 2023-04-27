@@ -5,18 +5,16 @@ import * as profilesCtrl from '../controllers/profiles.js'
 const router = Router()
 
 // GET localhost:3000/profiles
-// router.get('/', isLoggedIn, profilesCtrl.index)
+router.get('/', isLoggedIn, profilesCtrl.index)
 
 //GET localhost:3000/profiles
-router.get('/', isLoggedIn, profilesCtrl.show)
+router.get('/:profileId', isLoggedIn, profilesCtrl.show)
 
-//POST localhost:3000/profiles/:gameId/favorites
-// router.post('/:gameId/favorites', isLoggedIn, profilesCtrl.addToFavorites)
-router.post('/games/:gameId', isLoggedIn, profilesCtrl.addToFavorites)
+//POST localhost:3000/profiles/games/:gameId
+router.post('/:profileId/games/:gameId', isLoggedIn, profilesCtrl.addToFavorites)
 
-//DELETE localhost:3000/profiles/favorites/:favoriteId
-// router.delete('/favorites/:favoriteId', isLoggedIn, profilesCtrl.removeFromFavorites)
-router.delete('/games/:gameId', isLoggedIn, profilesCtrl.removeFromFavorites)
+//DELETE localhost:3000/profiles/:profileId/games/:gameId
+router.delete('/:profileId/games/:gameId', isLoggedIn, profilesCtrl.removeFromFavorites)
 
 export {
   router

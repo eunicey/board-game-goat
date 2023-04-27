@@ -23,7 +23,7 @@
             alt="<%= game.name %>"
           >
           <% if (isSelf) {%> 
-            <form id="remove-fav-form" action="/profiles/games/<%= game._id %>?_method=DELETE" method="POST">
+            <form id="remove-fav-form" action="/profiles/<%= profile._id %>/games/<%= game._id %>?_method=DELETE" method="POST">
               <button type="submit" id="remove-fav-btn">
                 <i class="fa-solid fa-heart-circle-minus fa-xl"></i>
               </button>
