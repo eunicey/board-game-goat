@@ -12,7 +12,7 @@
       <h1><%= game.name %></h1>
         <div class="fav-edit-btns">
         <% if (user) { %>
-          <form action="/profiles/<%=profile._id%>/games/<%= game._id %>" method="POST">
+          <form action="/profiles/<%=profile._id%>/favorites/<%= game._id %>" method="POST">
             <button
             <% if(isUserFav){ %>
               disabled> <i class="fa-solid fa-heart-circle-check fa-2xl"></i>

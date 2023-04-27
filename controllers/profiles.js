@@ -34,7 +34,7 @@ function showFavorites (req, res){
 }
 
 function addToFavorites (req, res){
-  Game.findById(req.params.gameId)
+  Game.findById(req.params.favoriteId)
   .then(game => {
     Profile.findById(req.params.profileId)
     .populate('favorites')

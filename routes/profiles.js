@@ -7,11 +7,11 @@ const router = Router()
 // // GET localhost:3000/profiles
 // router.get('/', isLoggedIn, profilesCtrl.index)
 
-//GET localhost:3000/profiles
+//GET localhost:3000/profiles/favorites
 router.get('/:profileId/favorites', isLoggedIn, profilesCtrl.showFavorites)
 
-//POST localhost:3000/profiles/games/:gameId
-router.post('/:profileId/games/:gameId', isLoggedIn, profilesCtrl.addToFavorites)
+//POST localhost:3000/profiles/favorites/:favoriteId
+router.post('/:profileId/favorites/:favoriteId', isLoggedIn, profilesCtrl.addToFavorites)
 
 //DELETE localhost:3000/profiles/:profileId/games/:gameId
 router.delete('/:profileId/games/:gameId', isLoggedIn, profilesCtrl.removeFromFavorites)
