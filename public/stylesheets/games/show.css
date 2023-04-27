@@ -80,16 +80,13 @@ section.left, section.right, section.middle {
 
 section.left > div, section.right > div, section.middle > div {
   height: 50px;
-  /* margin-left: 20px; */
 }
 
 section.left {
   grid-area: left;
   display: flex;
   flex-direction: column;
-  /* justify-items: center; */
 }
-
 
 section.middle > div * {
   display: inline-block;
@@ -112,7 +109,6 @@ section.right > div * {
 
 .label.low {
   background-color: green;
-
 }
 
 .label.med {
@@ -125,7 +121,6 @@ section.right > div * {
 
 section.description {
   grid-area: description;
-  /* border: 2px solid var(--border-color); */
   border-radius: 5px;
   background-color: #43494f;
   padding: 15px;
@@ -138,35 +133,6 @@ section.description > p {
 
 section.reviews {
   grid-area: reviews;
-  /* margin-top: 30px; */
-  /* margin-left: 40px; */
-}
-
-.star-container {
-  display: inline-flex;
-  flex-direction: row-reverse;
-  align-items: flex-start;
-  justify-content: flex-end;
-}
-
-.star {
-  /* -webkit-appearance: none !important;
-  -moz-appearance: none !important;
-  -o-appearance: none !important;
-  -ms-appearance: none !important; */
-  appearance: none;
-  width: 24px;
-  height: 24px;
-  background-image: url('https://www.worthschools.net/userfiles/197/my%20files/4-stars.jpg?id=29736');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: right 0;
-  cursor: pointer;
-  /* outline: 0; */
-}
-
-.star:checked, .star:checked~input[class="star"] {
-  background-position: left 0;
 }
 
 .section.reviews {
@@ -228,4 +194,78 @@ section.reviews {
 
 a:link { 
   text-decoration: none; 
+}
+
+/* code below from https://codeconvey.com/css-star-rating-radio-buttons/ */
+
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  text-align: center;
+}
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+  content: "\2605";
+  position: absolute;
+  left: 0;
+  color: gold;
+}
+.rating > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+}
+.rating > span:hover,
+.rating > span:hover ~ span {
+  color: transparent;
+}
+
+.star-cb-group {
+  display: inline-flex;
+  font-size: 0;
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+.star-cb-group * {
+  font-size: 1.5rem;
+}
+.star-cb-group > input {
+  display: none;
+}
+.star-cb-group > input + label {
+  display: inline-block;
+  overflow: hidden;
+  text-indent: 9999px;
+  width: 1em;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.star-cb-group > input + label:before {
+  display: inline-block;
+  text-indent: -9999px;
+  content: "☆";
+  color: #888;
+}
+.star-cb-group > input:checked ~ label:before, .star-cb-group > input + label:hover ~ label:before, .star-cb-group > input + label:hover:before {
+  content: "★";
+  color:gold;
+  text-shadow: 0 0 1px #333;
+}
+.star-cb-group > .star-cb-clear + label {
+  text-indent: -9999px;
+  width: .5em;
+  margin-left: -.5em;
+}
+.star-cb-group > .star-cb-clear + label:before {
+  width: .5em;
+}
+.star-cb-group:hover > input + label:before {
+  content: "☆";
+  color: #888;
+  text-shadow: none;
+}
+.star-cb-group:hover > input + label:hover ~ label:before, .star-cb-group:hover > input + label:hover:before {
+  content: "★";
+  color: gold;
+  text-shadow: 0 0 1px #333;
 }

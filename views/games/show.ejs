@@ -33,7 +33,6 @@
     </div>
     <div class="avgRating">
       <% if (game.totReviews) { %>
-        <!-- <h3><%#= game.avgRating %></h3> -->
         <% for(let i=0; i<game.avgRating; i++){%>
           ⭐️ 
         <%} %>
@@ -94,22 +93,22 @@
     <h3>Reviews</h3>
     <% if (user) { %>
       <form action="/games/<%= game._id %>/reviews" method="POST" id="review-form">
-        <!-- <div class="rating-input"> -->
+ 
           <label for="rating-input">Rate:</label>
-          <!-- <select name="rating" id="rating-input" >
-            <%# ratingOptions.forEach(score => { %>
-              <option value="<%#= score %>"><%#= score %></option>
-            <%# }) %>
-          </select><br> -->
-          
-          <div class="star-container" id="rating-input">
-            <input type="radio" name="rating" class="star" value=5>
-            <input type="radio" name="rating" class="star" value=4>
-            <input type="radio" name="rating" class="star" value=3>
-            <input type="radio" name="rating" class="star" value=2>
-            <input type="radio" name="rating" class="star" value=1>
+          <div class="star-cb-group">
+            <input type="radio" id="rating-5" name="rating" value="5" />
+            <label for="rating-5">5</label>
+            <input type="radio" id="rating-4" name="rating" value="4"  />
+            <label for="rating-4">4</label>
+            <input type="radio" id="rating-3" name="rating" value="3" />
+            <label for="rating-3">3</label>
+            <input type="radio" id="rating-2" name="rating" value="2" />
+            <label for="rating-2">2</label>
+            <input type="radio" id="rating-1" name="rating" value="1" checked="checked"/>
+            <label for="rating-1">1</label>
+            <input type="radio" id="rating-0" name="rating" value="0" class="star-cb-clear" />
+            <label for="rating-0">0</label>
           </div>
-        <!-- </div> -->
 
         <textarea type="text" name="content" id="review-text-input" autocomplete="off"></textarea>
 
@@ -145,10 +144,7 @@
 
       </div>
     <% }) %>
-
   </section>
-
-
 </main>
 
 <%- include('../partials/footer') %>

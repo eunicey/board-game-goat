@@ -5,6 +5,10 @@
   --color3: #F4D6CC;
   --textarea-color: #e5e5e5;
   --border-color: #828282;
+  /* --unchecked-star: '\2606';
+  --uunchecked-color: #888;
+  --uchecked-star: '\2605';
+  --uchecked-color: #e52; */
 }
 
 html {
