@@ -22,7 +22,7 @@ function show (req, res){
     const isSelf = profile._id.equals(req.user.profile._id)
     const games = profile.favorites
     res.render('profiles/show', {
-      title: `${profile.name}'s profile`,
+      title: `${profile.name}'s Favorites`,
       profile,
       games,
       isSelf,

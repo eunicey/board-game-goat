@@ -24,6 +24,7 @@ const gameSchema = new Schema({
     type: String,
     default: "https://cdn-icons-png.flaticon.com/512/13/13598.png",
   },
+  description: String,
   category: String,
   duration: String,
 

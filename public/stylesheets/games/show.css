@@ -6,9 +6,9 @@
 } */
 main {
   display: grid;
-  grid-template-areas: "image header header" "left middle right" "reviews reviews reviews";
+  grid-template-areas: "image header header" "left middle right" "description description description" "reviews reviews reviews";
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 250px 250px auto;
+  grid-template-rows: 250px 200px 100px auto;
 
   /* margin: 20px 40px; */
   width: 800px; 
@@ -17,6 +17,10 @@ main {
   justify-content: center; */
   margin: 50px auto;
   font-size: 20px;
+}
+
+section {
+  margin-top: 20px;
 }
 
 section.game-image {
@@ -119,6 +123,19 @@ section.right > div * {
   background-color: red;
 }
 
+section.description {
+  grid-area: description;
+  /* border: 2px solid var(--border-color); */
+  border-radius: 5px;
+  background-color: #43494f;
+  padding: 15px;
+  font-size: 16px;
+}
+
+section.description > p {
+  font-style: italic;
+}
+
 section.reviews {
   grid-area: reviews;
   /* margin-top: 30px; */
@@ -203,6 +220,7 @@ section.reviews {
   color: var(--color3);
   border: none;
 }
+
 .all-but-review > .author-btns > p {
   font-style: italic;
   margin-right: 20px;

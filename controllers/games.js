@@ -1,4 +1,5 @@
 import { Game } from "../models/game.js"
+import { Profile } from '../models/profile.js'
 
 const categoryOptions = ['Co-Op', 'Engine Builder', 'Deck Builder', 'Worker Placement', 'Social Deduction', 'RPG']
 const durationOptions = ['< 30 min', '1 - 1.5 hrs', '2+ hrs']
@@ -60,10 +61,33 @@ function show (req, res){
     {path: "reviews.author"}
   ])
   .then(game => {
-    res.render('games/show',{
-      game,
-      title: game.name,
-    })
+    let isUserFav = false
+    if (req.hasOwnProperty('user')) {
+      Profile.findById(req.user.profile._id)
+      .populate('favorites')
+      .then(profile => {
+        profile.favorites.forEach(function(fav){
+          if(fav._id.equals(game._id)){
+            isUserFav=true
+          }
+        })
+        res.render('games/show',{
+          game,
+          title: game.name,
+          isUserFav,
+        })
+      })
+      .catch(err => {
+        console.log(err)
+        res.redirect('/')
+      })
+    } else {
+      res.render('games/show',{
+        game,
+        title: game.name,
+        isUserFav,
+      })
+    }
   })
   .catch(err => {
     console.log(err)
