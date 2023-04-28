@@ -24,11 +24,9 @@ const gameSchema = new Schema({
     type: String,
     default: "https://openseauserdata.com/files/bb15c0a9f522ea55b10a8a9675f285c4.gif",
   },
-  
   description: String,
   category: [],
   duration: String,
-
   minPlayers: {
     type: Number,
     min: 1,
@@ -62,7 +60,6 @@ const gameSchema = new Schema({
     type: Number,
     default: 0,
   },
-
   avgRating: Number,
   online: Boolean,
   reviews: [reviewSchema],
