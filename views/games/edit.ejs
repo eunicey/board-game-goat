@@ -4,9 +4,12 @@
 
 <main>
   <h1><%= title %></h1>
+
   <form id="edit-game-form" action="/games/<%= game._id %>?_method=PUT" method="POST">
+
     <label for="name-input">Name of board game</label>
     <input type="text" name="name" autocomplete="off" id="name-input" value="<%= game.name %>">
+
     <label for="imgUrl-input">Image url</label>
     <input type="text" name="imgUrl" autocomplete="off" id="imgUrl-input" value="<%= game.imgUrl %>">
 
@@ -28,6 +31,7 @@
 
     <label for="minPlayers-input">Minimum Players</label>
     <input type="number" name="minPlayers" id="minPlayers-input" min=1 value="<%= game.minPlayers %>">
+
     <label for="maxPlayers-input">Maximum Players</label>
     <input type="number" name="maxPlayers" id="maxPlayers-input" min=1 value="<%= game.maxPlayers %>">
 
@@ -85,7 +89,6 @@
   <form id="delete-form" action="/games/<%= game._id %>?_method=DELETE" method="POST">
     <button type="submit">Delete Game</button>
   </form>
-  
 
 </main>
 
