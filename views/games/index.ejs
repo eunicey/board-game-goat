@@ -6,8 +6,10 @@
   <h1><%= title %></h1>
   
   <div class="card-container">
+
     <% games.forEach((game) => { %>
       <a href="/games/<%= game._id %>">
+
         <div class="card">
           <div class="card-text">
             <h1 class="card-title"><%= game.name %></h1>
@@ -18,16 +20,17 @@
                   <%= game.avgRating ? game.avgRating : "NR" %>
               </span>
             </span>
+
           </div>
           <img 
-          src="<%= game.imgUrl %>"
-          alt="<%= game.name %>"
+            src="<%= game.imgUrl %>"
+            alt="<%= game.name %>"
           >
+        
         </div>
       </a>
     <% }) %>
   </div>
-
 </main>
 
 <%- include('../partials/footer') %>

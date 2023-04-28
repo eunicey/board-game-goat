@@ -4,7 +4,9 @@
 
 <main>
   <h1><%= title %></h1>
+
   <form action="/games/<%= game._id %>/reviews/<%= review._id %>?_method=PUT" method="POST" id="edit-review-form">
+
     <div class="edit-rating">
 
       <label for="rating-input">Rate:</label>
@@ -20,10 +22,13 @@
           <label for="rating-<%= i %>"><%= i %></label>
         <% } %>
       </div>
+
     </div>
 
     <textarea type="text" name="content" id="review-text-input" autocomplete="off"><%= review.content %></textarea>
+
     <button type="submit" id="post-review-btn">Save Changes</button>
+    
   </form>
 </main>
 
