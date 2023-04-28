@@ -6,10 +6,12 @@
   <h1><%= title %></h1>
 
   <div class="card-container">
+
     <% favGames.forEach(favGame => { %>
       <a href="/games/<%= favGame._id %>">
         <div class="card">
           <div class="card-text">
+
             <h1 class="card-title"><%= favGame.name %></h1>
             <span class="fa-layers fa-fw" id="score-shape-number">
               <i class="fa-solid fa-shield fa-2xl" id="score-shape"></i>
@@ -18,10 +20,12 @@
               </span>
             </span>
           </div>
+
           <img 
             src="<%= favGame.imgUrl %>" 
             alt="<%= favGame.name %>"
           >
+          
           <% if (isSelf) {%> 
             <form id="remove-fav-form" action="/profiles/<%= profile._id %>/favorites/<%= favGame._id %>?_method=DELETE" method="POST">
               <button type="submit" id="remove-fav-btn">
