@@ -17,6 +17,7 @@ import { Game } from '../models/game.js'
 function showFavorites (req, res){
   Profile.findById(req.params.profileId)
   .populate('favorites')
+
   .then(profile => {
     const isSelf = profile._id.equals(req.user.profile._id)
     const favGames = profile.favorites
@@ -27,6 +28,7 @@ function showFavorites (req, res){
       isSelf,
     })
   })
+
   .catch(err => {
     console.log(err)
     res.redirect('/')
@@ -35,25 +37,31 @@ function showFavorites (req, res){
 
 function addToFavorites (req, res){
   Game.findById(req.params.favoriteId)
+
   .then(game => {
     Profile.findById(req.params.profileId)
     .populate('favorites')
+
     .then(profile => {
       profile.favorites.push(game._id)
       profile.save()
+
       .then(() => {
         res.redirect(`/games/${game._id}`)
       })
+
       .catch(err => {
         console.log(err)
         res.redirect('/')
       })
     })
+
     .catch(err => {
       console.log(err)
       res.redirect('/')
     })
   })
+
   .catch(err => {
     console.log(err)
     res.redirect('/')
@@ -63,9 +71,11 @@ function addToFavorites (req, res){
 function removeFromFavorites (req, res){
   Profile.findById(req.params.profileId)
   .populate('favorites')
+
   .then(profile => {
     profile.favorites.remove({_id: req.params.favoriteId})
     profile.save()
+
     .then(() => {
       if (req.headers.referer.match('/games/')){
         res.redirect(`/games/${req.params.favoriteId}`)
@@ -73,11 +83,13 @@ function removeFromFavorites (req, res){
         res.redirect(`/profiles/${profile._id}/favorites`)
       }
     })
+
     .catch(err => {
       console.log(err)
       res.redirect('/')
     })
   })
+  
   .catch(err => {
     console.log(err)
     res.redirect('/')
