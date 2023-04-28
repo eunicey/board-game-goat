@@ -1,4 +1,4 @@
-<img src= "./public/images/white-goat.png" width="200">
+<img src= "./public/images/game.png" >
 <br />
 <br />
 
@@ -28,7 +28,7 @@ Welcome to Board Game Goat, an app for board game enthusiasts looking for the pe
 - [Game image placeholder](https://openseauserdata.com/files/bb15c0a9f522ea55b10a8a9675f285c4.gif)
 - [Board game images](https://boardgamegeek.com/)
 - [Icons](https://fontawesome.com/)
-- [Goat face image](ADD HERE)
+- [Goat face image](https://www.clipartmax.com/middle/m2H7G6K9m2d3Z5A0_goat-face-png-goat-icon/)
 - [Google Fonts](https://fonts.google.com/?query=open+sans)
 <br />
 <br />
