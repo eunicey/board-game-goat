@@ -1,4 +1,4 @@
-<img src= "./public/images/goat.png">
+<img src= "./public/images/white-goat.png" width="200">
 <br />
 <br />
 

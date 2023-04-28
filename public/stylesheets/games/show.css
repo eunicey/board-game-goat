@@ -41,12 +41,12 @@ section.game-header {
 
 .name-fav-edit button {
   background-color: transparent;
-  color: var(--color3);
+  color: var(--editColor);
   border: none;
 }
 
 .name-fav-edit form button {
-  color: rgb(194, 194, 194);
+  color: var(--heartColor);
 }
 
 .avgRating {
@@ -86,28 +86,16 @@ section.right > div * {
 .label {
   color:white;
   padding: 4px 8px;
-  background-color: black;
+  background-color: var(--labelColor);
   border-radius: 25px;
   font-size: 16px;
   margin-left: 10px;
 }
 
-.label.low {
-  background-color: green;
-}
-
-.label.med {
-  background-color: orange;
-}
-
-.label.high {
-  background-color: red;
-}
-
 section.description {
   grid-area: description;
   border-radius: 5px;
-  background-color: #43494f;
+  background-color: var(--color2b);
   padding: 15px;
   font-size: 16px;
 }
@@ -135,7 +123,6 @@ section.reviews {
   padding: 15px;
   border: 2px solid var(--border-color);
   border-radius: 5px;
-  background-color: var(--textarea-color);
   font-size: 16px;
   font-family: var(--font);
   margin-top: 10px;
@@ -145,7 +132,7 @@ section.reviews {
   float: right;
   border-radius: 5px;
   padding: 5px;
-  background-color: var(--color3);
+  background-color: var(--submit-color);
   font-size: 20px;
 }
 
@@ -153,7 +140,7 @@ section.reviews {
   border: 2px solid var(--border-color);
   border-radius: 5px;
   padding: 15px;
-  background-color: var(--color2);
+  background-color: var(--color2b);
   margin: 15px 0;
   font-size: 16px;
 }
@@ -168,7 +155,7 @@ section.reviews {
 
 .all-but-review button {
   background-color: transparent;
-  color: var(--color3);
+  color: var(--editColor);
   border: none;
 }
 

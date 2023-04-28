@@ -1,10 +1,16 @@
 :root {
   --font: 'Open Sans', 'Helvetica Neue', 'Segoe UI', sans-serif;
-  --color1: #32373B;
-  --color2: #4A5859;
-  --color3: #F4D6CC;
-  --textarea-color: #e5e5e5;
-  --border-color: #828282;
+  --color1: #3F3244;
+  --color2a: #584352;
+  --color2b: #60495A;
+  --color3: #A9ACA9;
+  --color4: #BFC3BA;
+  --shieldColor: #eac25d;
+  --heartColor: #fc6262;
+  --editColor: #A6CDC4;
+  --labelColor: #60495A;
+  --border-color: #616161;
+  --submit-color: #A6CDC4;
 }
 
 html {
@@ -28,7 +34,7 @@ body {
 }
 
 nav {
-  background-color: var(--color3);
+  background-color: var(--color4);
   display: flex;
   align-items: center;
   padding: 0px 20px 0px 20px;
@@ -52,4 +58,3 @@ nav i[class^="fa-"]{
   height: 40px;
   width: 40px;
 }
-

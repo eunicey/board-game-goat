@@ -142,13 +142,13 @@
             <% if (review.author.equals(user?.profile._id)) { %>
               <a href="/games/<%= game._id %>/reviews/<%= review._id %>/edit">
                 <button>
-                  <i class="fa-solid fa-pen-to-square fa-lg"></i>
+                  <i class="fa-solid fa-pen-to-square fa-xl"></i>
                 </button>
               </a>
 
               <form action="/games/<%= game._id %>/reviews/<%= review._id %>?_method=DELETE" method="POST">
                 <button type="submit">
-                  <i class="fa-regular fa-trash-can fa-lg"></i>
+                  <i class="fa-regular fa-trash-can fa-xl"></i>
                 </button>
               </form>
             <% } %> 

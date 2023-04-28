@@ -42,13 +42,13 @@ input[type="checkbox"]:checked {
 #edit-game-form > button, #new-game-form  > button {
   grid-column-start: 2;
   margin-left: auto;
-  background-color: var(--color3);
+  background-color: var(--submit-color);
 }
 
 #delete-form > button{
   grid-column-start: 2;
   margin-left: auto;
-  background-color: rgb(190, 190, 190);
+  background-color: var(--color4);
   margin-top: 10px;
 }
 
@@ -72,7 +72,6 @@ textarea {
   width: 100%;
   border: 2px solid var(--border-color);
   border-radius: 5px;
-  background-color: var(--textarea-color);
   font-family: var(--font);
   padding: 5px 10px;
   height: 150px;
@@ -81,7 +80,7 @@ textarea {
 
 #post-review-btn {
   margin-left: auto;
-  background-color: var(--color3);
+  background-color: var(--submit-color);
 }
 
 /* code below from https://codeconvey.com/css-star-rating-radio-buttons/ */
