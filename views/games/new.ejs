@@ -4,9 +4,12 @@
 
 <main>
   <h1><%= title %></h1>
+
   <form id="new-form" action="/games" method="POST">
+
     <label for="name-input">Name of board game</label>
     <input type="text" name="name" autocomplete="off" id="name-input">
+
     <label for="imgUrl-input">Image url</label>
     <input type="text" name="imgUrl" autocomplete="off" id="imgUrl-input">
 
@@ -26,6 +29,7 @@
 
     <label for="minPlayers-input">Minimum Players</label>
     <input type="number" name="minPlayers" id="minPlayers-input" min=1 value="1">
+    
     <label for="maxPlayers-input">Maximum Players</label>
     <input type="number" name="maxPlayers" id="maxPlayers-input" min=1 value="1">
 

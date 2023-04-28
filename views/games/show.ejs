@@ -36,8 +36,8 @@
           <% } %>
         <% } %>
       </div>
-
     </div>
+
     <div class="avgRating">
       <% if (game.totReviews) { %>
         <% for(let i=0; i<game.avgRating; i++){%>
@@ -52,9 +52,11 @@
     <div>
       <p>Released <%= game.year %></p>
     </div>
+
     <div>
       <p><%= game.online ? 'Play online!' : 'Not online'%></p>
     <div>
+
     <div>
       <p>Posted by <%= game.owner.name %></p>
     </div>
@@ -82,10 +84,12 @@
       <p>Complexity</p>
       <span class="label <%= game.complexity <= 2 ? "low" : game.complexity <= 4 ? "med" : "high" %>"><%= game.complexity %> / 5</span>
     </div>
+
     <div>
       <p>Strategy</p>
       <span class="label <%= game.strategy <= 2 ? "low" : game.strategy <= 4 ? "med" : "high" %>"><%= game.strategy %> / 5</span>
     </div>
+
     <div>
       <p>Luck</p>
       <span class="label <%= game.luck <= 2 ? "low" : game.luck <= 4 ? "med" : "high" %>"><%= game.luck %> / 5</span>
@@ -98,9 +102,9 @@
     
   <section class="reviews">
     <h3>Reviews</h3>
+
     <% if (user) { %>
       <form action="/games/<%= game._id %>/reviews" method="POST" id="review-form">
- 
           <label for="rating-input">Rate:</label>
           <div class="star-cb-group" id="rating-input">
             <input type="radio" id="rating-5" name="rating" value="5" />
@@ -120,23 +124,28 @@
         <textarea type="text" name="content" id="review-text-input" autocomplete="off"></textarea>
 
         <button id="post-review-btn">Post Review</button>
+
       </form>
     <% } %>
 
     <% game.reviews?.forEach(review => { %>
       <div class="review-container">
         <div class="all-but-review">
+
           <% for(let i=0; i<review.rating; i++){%>
             ⭐️ 
           <%}%>
+
           <div class="author-btns">
-            <p><%= review.author.name %> </p>
+            <p><%= review.author.name %></p>
+
             <% if (review.author.equals(user?.profile._id)) { %>
               <a href="/games/<%= game._id %>/reviews/<%= review._id %>/edit">
                 <button>
                   <i class="fa-solid fa-pen-to-square fa-lg"></i>
                 </button>
               </a>
+
               <form action="/games/<%= game._id %>/reviews/<%= review._id %>?_method=DELETE" method="POST">
                 <button type="submit">
                   <i class="fa-regular fa-trash-can fa-lg"></i>
@@ -145,6 +154,7 @@
             <% } %> 
           </div>
         </div>
+
         <% if (review.content) { %>
           <p> <%= review.content %> </p>
         <% } %>
