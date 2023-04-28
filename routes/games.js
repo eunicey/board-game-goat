@@ -34,7 +34,7 @@ router.post('/:gameId/reviews', isLoggedIn, gamesCtrl.createReview)
 // DELETE localhost:3000/games/:gameId
 router.delete('/:gameId', isLoggedIn, gamesCtrl.delete)
 
-// DELETE localhost:3000/games/:gameId
+// DELETE localhost:3000/games/:gameId/reviews/:reviewId
 router.delete('/:gameId/reviews/:reviewId', isLoggedIn, gamesCtrl.deleteReview)
 
 export {
