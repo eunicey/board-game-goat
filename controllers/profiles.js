@@ -61,7 +61,6 @@ function addToFavorites (req, res){
 }
 
 function removeFromFavorites (req, res){
-  console.log(req.headers.referer, "<---- ORIGINAL URL")
   Profile.findById(req.params.profileId)
   .populate('favorites')
   .then(profile => {
