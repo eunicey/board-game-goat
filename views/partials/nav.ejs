@@ -14,12 +14,15 @@
         <a href="/games/new">
           <i class="fa-solid fa-square-plus fa-xl"></i>
         </a>
+
         <a href="/profiles/<%= user.profile._id %>/favorites">
           <i class="fa-solid fa-circle-user fa-xl"></i>
         </a>
+
         <a href="/auth/logout">
           <i class="fa-solid fa-right-from-bracket fa-xl"></i>
         </a>
+
       <% } else { %>
         <div 
           id="g_id_onload"
@@ -28,6 +31,7 @@
           data-auto_prompt="false"
           data-prompt_parent_id="g_id_onload"
         ></div>
+        
         <div 
           class="g_id_signin right"
           data-type="standard"

@@ -29,6 +29,7 @@ Welcome to Board Game Goat, an app for board game enthusiasts looking for the pe
 - [Board game images](https://boardgamegeek.com/)
 - [Icons](https://fontawesome.com/)
 - [Goat face image](ADD HERE)
+- [Google Fonts](https://fonts.google.com/?query=open+sans)
 <br />
 <br />
 
