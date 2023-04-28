@@ -9,7 +9,7 @@ Welcome to Board Game Goat, an app for board game enthusiasts looking for the pe
 <br />
 <br />
 
-## [Play the game here](https://board-game-goat.fly.dev/games)
+## [Play the game here](https://board-game-goat.fly.dev)
 - This app is optimized for desktop displays. 
 - [Trello planning materials](https://trello.com/b/g7rWDiK2/board-game-goat)
 <br />
