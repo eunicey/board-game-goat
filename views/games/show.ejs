@@ -12,12 +12,11 @@
       <h1><%= game.name %></h1>
         <div class="fav-edit-btns">
 
-
         <% if (user) { %>
           <% if(isUserFav){ %>
             <form id="remove-fav-form" action="/profiles/<%= profile._id %>/favorites/<%= game._id  %>?_method=DELETE" method="POST">
               <button type="submit" id="remove-fav-btn">
-                <i class="fa-solid fa-heart-circle-minus fa-xl"></i>
+                <i class="fa-solid fa-heart-circle-minus fa-2xl"></i>
               </button>
             </form>
           <% } else { %>

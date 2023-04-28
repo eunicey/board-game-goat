@@ -61,13 +61,18 @@ function addToFavorites (req, res){
 }
 
 function removeFromFavorites (req, res){
+  console.log(req.headers.referer, "<---- ORIGINAL URL")
   Profile.findById(req.params.profileId)
   .populate('favorites')
   .then(profile => {
     profile.favorites.remove({_id: req.params.favoriteId})
     profile.save()
     .then(() => {
-      res.redirect(`/profiles/${profile._id}/favorites`)
+      if (req.headers.referer.match('/games/')){
+        res.redirect(`/games/${req.params.favoriteId}`)
+      } else {
+        res.redirect(`/profiles/${profile._id}/favorites`)
+      }
     })
     .catch(err => {
       console.log(err)
