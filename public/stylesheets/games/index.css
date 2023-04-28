@@ -15,7 +15,6 @@ h1 {
   flex-wrap: wrap;
   gap: 20px;
   margin: 20px;
-  /* max-width: 1600px; */
 }
 
 .card-container>a:link {
@@ -35,7 +34,6 @@ h1 {
 
 .card > img {
   border-radius: 10px;
-  /* width: 150px; */
   height: 150px;
   border: 2px solid var(--color1);
   max-width: 250px;
@@ -76,7 +74,8 @@ a:link {
   left: 75%; 
   top: 50%; 
   transform: translate(-50%, -50%);
-  font-size: 14px;
+  font-size: 15px;
+  font-weight: 900;
 }
 
 #remove-fav-form {

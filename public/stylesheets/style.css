@@ -5,10 +5,6 @@
   --color3: #F4D6CC;
   --textarea-color: #e5e5e5;
   --border-color: #828282;
-  /* --unchecked-star: '\2606';
-  --uunchecked-color: #888;
-  --uchecked-star: '\2605';
-  --uchecked-color: #e52; */
 }
 
 html {
@@ -28,20 +24,11 @@ html {
 
 body {
   background-color: var(--color1);
-  /* color: black; */
   margin: 0;
 }
 
-/* main {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-} */
-
 nav {
   background-color: var(--color3);
-  /* color: black; */
   display: flex;
   align-items: center;
   padding: 0px 20px 0px 20px;
@@ -62,7 +49,7 @@ nav i[class^="fa-"]{
 }
 
 #home-icon {
-  height: 30px;
-  width: 30px;
+  height: 40px;
+  width: 40px;
 }
 

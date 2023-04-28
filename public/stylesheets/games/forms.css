@@ -16,10 +16,9 @@ button {
   width: auto;
 }
 
-#edit-game-form :not(button) {
+#edit-game-form :not(button), #new-game-form :not(button) {
   padding: 5px 10px;
   border-radius: 5px;
-  /* font-size: 20px; */
 }
 
 input[type="number"] {
@@ -40,22 +39,17 @@ input[type="checkbox"]:checked {
   padding-left: 0;
 }
 
-#edit-game-form > button {
+#edit-game-form > button, #new-game-form  > button {
   grid-column-start: 2;
   margin-left: auto;
   background-color: var(--color3);
-  /* width: auto; */
-  /* padding: 5px; */
 }
 
 #delete-form > button{
   grid-column-start: 2;
   margin-left: auto;
   background-color: rgb(190, 190, 190);
-  
   margin-top: 10px;
-  /* padding: 5px; */
-  /* font-size: 20px; */
 }
 
 h1 {
@@ -66,7 +60,6 @@ h1 {
 #edit-review-form {
   display: flex;
   flex-direction: column;
-  /* font-size: 20px; */
 }
 
 .edit-rating {
@@ -87,14 +80,8 @@ textarea {
 }
 
 #post-review-btn {
-  /* grid-column-start: 2; */
-  /* width: auto; */
   margin-left: auto;
-  /* float: right; */
-  /* border-radius: 5px;
-  padding: 5px; */
   background-color: var(--color3);
-  /* font-size: 20px; */
 }
 
 /* code below from https://codeconvey.com/css-star-rating-radio-buttons/ */
