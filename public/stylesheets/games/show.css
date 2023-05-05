@@ -95,7 +95,7 @@ section.right > div * {
 section.description {
   grid-area: description;
   border-radius: 5px;
-  background-color: var(--color2b);
+  background-color: var(--background-contrast);
   padding: 15px;
   font-size: 16px;
 }
@@ -140,7 +140,7 @@ section.reviews {
   border: 2px solid var(--border-color);
   border-radius: 5px;
   padding: 15px;
-  background-color: var(--color2b);
+  background-color: var(--background-contrast);
   margin: 15px 0;
   font-size: 16px;
 }

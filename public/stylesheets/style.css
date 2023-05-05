@@ -1,16 +1,16 @@
 :root {
   --font: 'Open Sans', 'Helvetica Neue', 'Segoe UI', sans-serif;
-  --color1: #3F3244;
-  --color2a: #584352;
-  --color2b: #60495A;
-  --color3: #A9ACA9;
-  --color4: #BFC3BA;
+  --background-color: #282c34;
+  --background-contrast: #393e48;
+  --labelColor: #393e48;
+  --nav-color: #159eca;
+  --editColor: #159eca;
+  --border-color: #159eca;
+  --submit-color: #159eca;
+
+  --delete-color: #fb9262;
   --shieldColor: #eac25d;
   --heartColor: #fc6262;
-  --editColor: #A6CDC4;
-  --labelColor: #60495A;
-  --border-color: #616161;
-  --submit-color: #A6CDC4;
 }
 
 html {
@@ -29,29 +29,34 @@ html {
 }
 
 body {
-  background-color: var(--color1);
+  background-color: var(--background-color);
   margin: 0;
 }
 
 nav {
-  background-color: var(--color4);
+  background-color: var(--background-contrast);
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 0px 20px 0px 20px;
-  min-height: 50px;
+  min-height: 60px;
 }
 
-nav > div {
+nav * {
+  color: white;
+}
+
+/* nav > div {
   margin-left: auto;
-}
+} */
 
-nav > div > a:link { 
+nav > a:link { 
   text-decoration: none;
-  margin-right: 20px;
+  /* margin-right: 20px; */
 }
 
 nav i[class^="fa-"]{
-  color: black;
+  color: var(--nav-color);
 }
 
 #home-icon {

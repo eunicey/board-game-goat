@@ -6,20 +6,25 @@
 <body>
   <nav>
     <a href="/games" >
-      <img src="/images/black-goat.png" alt="home" id="home-icon">
+      Home
+      <img src="/images/white-goat.png" alt="home" id="home-icon">
     </a>
 
-    <div>
+    <!-- <div> -->
       <% if (user) { %>
+
         <a href="/games/new">
+          Add Game
           <i class="fa-solid fa-square-plus fa-xl"></i>
         </a>
 
         <a href="/profiles/<%= user.profile._id %>/favorites">
+          Favorites
           <i class="fa-brands fa-gratipay fa-xl"></i>
         </a>
 
         <a href="/auth/logout">
+          Logout
           <i class="fa-solid fa-right-from-bracket fa-xl"></i>
         </a>
 
@@ -42,5 +47,5 @@
           data-logo_alignment="left"
         ></div>
       <% } %>
-    </div>
+    <!-- </div> -->
   </nav>
