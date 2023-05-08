@@ -37,29 +37,30 @@ nav {
   background-color: var(--background-contrast);
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 0px 20px 0px 20px;
+  justify-content: space-around;
+  /* padding: 0px 20px 0px 20px; */
   min-height: 60px;
 }
 
 nav * {
-  color: white;
-}
-
-/* nav > div {
-  margin-left: auto;
-} */
-
-nav > a:link { 
-  text-decoration: none;
-  /* margin-right: 20px; */
-}
-
-nav i[class^="fa-"]{
   color: var(--nav-color);
 }
 
+nav > a:link { 
+  text-decoration: none;
+}
+
+nav> a[href="/games"] {
+  display: flex;
+  align-items: center;
+}
+nav i[class^="fa-"]{
+  /* color: var(--nav-color); */
+  margin-left: 10px;
+}
+
 #home-icon {
-  height: 40px;
-  width: 40px;
+  height: 30px;
+  width: 30px;
+  margin-left: 10px;
 }
